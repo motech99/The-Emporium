@@ -41,9 +41,9 @@ export default class SignUpForm extends Component {
     return (
       <>
         <div className='container'>
-          <div className='form-container sign-in-container'>
+          <div className='form-container sign-in-container m-1'>
             <form autoComplete='off' onSubmit={this.handleSubmit}>
-              <h1>Sign Up</h1>
+              <h1 >Sign Up</h1>
               <label>Name</label>
               <input
                 type='text'
@@ -76,7 +76,7 @@ export default class SignUpForm extends Component {
                 onChange={this.handleChange}
                 required
               />
-              <button type='submit' disabled={disable}>
+              <button className="bg-[#ff9041]" type='submit' disabled={disable}>
                 SIGN UP
               </button>
             </form>

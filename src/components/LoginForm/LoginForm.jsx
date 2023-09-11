@@ -34,7 +34,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
       <div className='container'>
         <div className='form-container sign-in-container'>
           <form autoComplete='off' onSubmit={handleSubmit}>
-            <h1>Sign in</h1>
+            <h1 className="p-8">Sign in</h1>
             <label>Email</label>
             <input
               type='text'
@@ -51,7 +51,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
               onChange={handleChange}
               required
             />
-            <button type='submit'>Sign In</button>
+            <button className="bg-[#ff9041]" type='submit'>Sign In</button>
             <Link to="/"> <button id="back" type='button'>Back</button> </Link>
             <br />
             <h4 className='error-message'>{error}</h4>
