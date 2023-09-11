@@ -74,6 +74,10 @@ button.ghost {
   border-color: #ffffff;
 }
 
+#back {
+  margin: 0;
+}
+
 form {
   background-color: #ffffff;
   display: flex;

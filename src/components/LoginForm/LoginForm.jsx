@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import "./LoginForm.css";
@@ -51,6 +52,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
               required
             />
             <button className="bg-[#ff9041]" type='submit'>Sign In</button>
+            <Link to="/"> <button id="back" type='button'>Back</button> </Link>
             <br />
             <h4 className='error-message'>{error}</h4>
           </form>
