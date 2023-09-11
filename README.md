@@ -6,11 +6,11 @@
 
 
 # Implemented Features
-- [] Models
-- [] Login Page and functionality
-- [] 
-- [] Backend
-- [] Frontend
+- [ ] Models
+- [ ] Login Page and functionality
+- [ ] 
+- [ ] Backend
+- [ ] Frontend
 
 # Technologies Used
 + MERN-Stack
