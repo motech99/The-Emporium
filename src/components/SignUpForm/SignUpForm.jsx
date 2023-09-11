@@ -85,13 +85,12 @@ export default class SignUpForm extends Component {
             <div className='overlay'>
               <div className='overlay-panel overlay-left'></div>
               <div className='overlay-panel overlay-right'>
-                <h1>Sign Up Now!</h1>
+                <h1>Already have an account?</h1>
                 <p>
-                  Enter your personal details and start exploring the
-                  marketplace!
+                  If you've registered before, log in to access your account
                 </p>
                 <button className='ghost' onClick={this.props.toggleSignUp}>
-                  {this.props.showSignUp ? "Sign Up" : "Sign Login"}
+                  {this.props.showSignUp ? "Log In" : "Sign Up"}
                 </button>
               </div>
             </div>

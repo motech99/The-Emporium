@@ -29,8 +29,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
   }
 
   return (
-
-	  <>
+    <>
       <div className='container'>
         <div className='form-container sign-in-container'>
           <form autoComplete='off' onSubmit={handleSubmit}>
@@ -62,9 +61,9 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
             <div className='overlay-panel overlay-right'>
               <h1>Hello, Friend!</h1>
               <p>Enter your personal details and start your journey with us</p>
-			  <button className='ghost' onClick={toggleSignUp}>
-        {showSignUp ? 'Log In' : 'Sign Up'}
-      </button>
+              <button className='ghost' onClick={toggleSignUp}>
+                {showSignUp ? "Log In" : "Sign Up"}
+              </button>
             </div>
           </div>
         </div>
