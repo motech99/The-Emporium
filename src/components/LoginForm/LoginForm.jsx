@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import "./LoginForm.css";
@@ -39,40 +40,52 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
 
   return (
     <>
-      <div className='container'>
-        <div className='form-container sign-in-container'>
-          <form autoComplete='off' onSubmit={handleSubmit}>
-            <h1 className="p-8">Sign in</h1>
-            <label>Email</label>
-            <input
-              type='text'
-              name='email'
-              value={credentials.email}
-              onChange={handleChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              type='password'
-              name='password'
-              value={credentials.password}
-              onChange={handleChange}
-              required
-            />
-            <button className="bg-[#ff9041]" type='submit'>Sign In</button>
-            <br />
-            <h4 className='error-message'>{error}</h4>
-          </form>
-        </div>
-        <div className='overlay-container'>
-          <div className='overlay'>
-            <div className='overlay-panel overlay-left'></div>
-            <div className='overlay-panel overlay-right'>
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start your journey with us</p>
-              <button className='ghost' onClick={toggleSignUp}>
-                {showSignUp ? "Log In" : "Sign Up"}
+      <div className="body">
+        <div className="container">
+          <div className="form-container sign-in-container">
+            <form autoComplete="off" onSubmit={handleSubmit}>
+              <h1 className="p-8 h1-header">Sign in</h1>
+              <label>Email</label>
+              <input
+                type="text"
+                name="email"
+                value={credentials.email}
+                onChange={handleChange}
+                required
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={credentials.password}
+                onChange={handleChange}
+                required
+              />
+              <button className="bg-[#ff9041]" type="submit">
+                Sign In
               </button>
+              <Link to="/">
+                {" "}
+                <button id="back" className="bg-[#ff9041]" type="button">
+                  Back
+                </button>{" "}
+              </Link>
+              <br />
+              <h4 className="error-message">{error}</h4>
+            </form>
+          </div>
+          <div className="overlay-container">
+            <div className="overlay">
+              <div className="overlay-panel overlay-left"></div>
+              <div className="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p className=".login-suggestion">
+                  Enter your personal details and start your journey with us
+                </p>
+                <button className="ghost" onClick={toggleSignUp}>
+                  {showSignUp ? "Log In" : "Sign Up"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
