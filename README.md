@@ -8,7 +8,7 @@
 # Implemented Features
 - [ ] Models
 - [ ] Login Page and functionality
-- [ ] 
+- [ ] .
 - [ ] Backend
 - [ ] Frontend
 
