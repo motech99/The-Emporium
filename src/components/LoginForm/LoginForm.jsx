@@ -16,18 +16,27 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
-    evt.preventDefault();
-    try {
-      // The promise returned by the signUp service method
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
-      const user = await usersService.login(credentials);
-      setUser(user);
-    } catch {
-      setError("Log In Failed - Try Again");
-    }
+	// Prevent form from being submitted to the server
+	evt.preventDefault();
+	try {
+	  // The promise returned by the login service method
+	  // will resolve to the user object included in the
+	  // payload of the JSON Web Token (JWT)
+	  const user = await usersService.login(credentials);
+  
+	  // Check if the response contains a redirect URL
+	  if (user.redirectUrl) {
+		// Redirect to the specified URL
+		window.location.href = user.redirectUrl;
+	  } else {
+		// Set the user state if no redirect URL is present
+		setUser(user);
+	  }
+	} catch {
+	  setError("Log In Failed - Try Again");
+	}
   }
+  
 
   return (
     <>
@@ -69,7 +78,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
             <div className="overlay">
               <div className="overlay-panel overlay-left"></div>
               <div className="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
+                <h1 className="h1-header">Hello, Friend!</h1>
                 <p className=".login-suggestion">
                   Enter your personal details and start your journey with us
                 </p>
