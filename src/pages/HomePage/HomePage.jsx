@@ -2,5 +2,11 @@ import "./HomePage.css";
 
 // needs attention...
 export default function HomePage() {
-  return <h1 className="flex justify-start">HomePage</h1>;
+  return (
+    <>
+      <div className="flex justify-center m-8">
+        <h1 className="text-5xl font-bold">Home Page</h1>
+      </div>
+    </>
+  );
 }
