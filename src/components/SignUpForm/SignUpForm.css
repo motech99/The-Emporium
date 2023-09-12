@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   
-  body {
+  .body {
     background: #f6f5f7;
     display: flex;
     justify-content: center;
@@ -10,18 +10,18 @@
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
     height: 100vh;
-    margin: -20px 0 50px;
   }
   
-  h1 {
+  .h1-header {
     font-weight: bold;
+    font-size: revert;
   }
   
   h2 {
     text-align: center;
   }
   
-  p {
+  .login-suggestion {
     font-size: 14px;
     font-weight: 100;
     line-height: 20px;
@@ -29,16 +29,16 @@
     margin: 20px 0 30px;
   }
   
-  span {
+  /* span {
     font-size: 12px;
-  }
+  } */
   
-  a {
+  /* a {
     color: #333;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
-  }
+  } */
   
   button {
     margin: 20px;
