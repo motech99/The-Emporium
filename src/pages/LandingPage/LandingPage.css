@@ -1,3 +1,10 @@
-#test {
-    color: orange;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+.custom-landing-header {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
