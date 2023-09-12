@@ -78,7 +78,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
             <div className="overlay">
               <div className="overlay-panel overlay-left"></div>
               <div className="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
+                <h1 className="h1-header">Hello, Friend!</h1>
                 <p className=".login-suggestion">
                   Enter your personal details and start your journey with us
                 </p>
