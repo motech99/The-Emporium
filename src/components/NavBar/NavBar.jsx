@@ -27,7 +27,8 @@ export default function NavBar({ user, setUser }) {
     <nav className="flex justify-between bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-red-500 via-orange-500 to-red-800text-white w-screen">
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
       
-          <h2 className="text-4xl custom--hover custom--font">Emporium</h2>
+          {/* <h2 className="text-4xl custom--hover custom--font">/h2> */}
+          <Link className="text-4xl custom--hover custom--font" to='/home'>Emporium</Link>
         <ul className="hidden md:flex  px-4 mx-auto  font-heading space-x-12 text-lg font-medium">
           <li><a className="custom--hover" href="#">Home</a></li>
           <li><a className="custom--hover" href="#">Category</a></li>
