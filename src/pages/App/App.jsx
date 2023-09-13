@@ -6,9 +6,13 @@ import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
 import LandingPage from "../LandingPage/LandingPage";
 import HomePage from "../HomePage/HomePage";
+import AllListingPage from "../AllListingPage/AllListingPage";
+import AddListingPage from "../AddListingPage/AddListingPage";
+import ListingDetail from "../ListingDetail/ListingDetail";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [listings, setListings] = useState([]);
 
   return (
     <main className="App">
@@ -16,9 +20,12 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/home" element={<HomePage />} />
             {/* Route components in here */}
+            <Route path="/home" element={<HomePage user={user} listings={listings} setListings={setListings} />} />
             <Route path="*" element={<Navigate to="/home" />} />
+            <Route path="/listings/:listing" element={<ListingDetail />} />
+            <Route path="/all-listing" element={<AllListingPage />} />
+            <Route path="/add-listing" element={<AddListingPage />} />
           </Routes>
         </>
       ) : (

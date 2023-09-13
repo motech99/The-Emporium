@@ -34,8 +34,8 @@ export default function NavBar({ user, setUser }) {
           <Link className="text-4xl custom--hover custom--font" to='/home'>Emporium</Link>
         <ul className="hidden md:flex  px-4 mx-auto  font-heading space-x-12 text-lg font-medium">
         <li><Link className="custom--hover" to='/home'>Home</Link></li>
-          <li><a className="custom--hover" href="#">All Listings</a></li>
-          <li><a className="custom--hover" href="#">Add Listings</a></li>
+        <li><Link className="custom--hover" to='/all-listing'>All Listing</Link></li>
+          <li><Link className="custom--hover" to='/add-listing'>Add Listing</Link></li>
         </ul>
       </div>
       <ul className="hidden md:flex px-4 font-heading items-center space-x-12">
