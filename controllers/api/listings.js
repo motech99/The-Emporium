@@ -29,10 +29,13 @@ async function getUserListing(req, res) {
 
 async function create(req, res) {
     try {    
+        req.body.seller = req.user._id;
         const listing = await Listing.create(req.body);
+        console.log(listing);
         res.json(listing);
   } catch (err) {
         console.log(err);
+        res.json({ errorMsg: err.message });
   }
 }
 
@@ -89,7 +92,7 @@ async function update(req, res) {
           return res.status(403).json({ error: 'Permission denied' });
         }
     } catch {
-        
+
     }
     
     

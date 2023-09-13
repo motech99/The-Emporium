@@ -12,7 +12,7 @@ router.get('/:id', listingsController.show);
 // GET /api/listings/ (All user's listings)
 
 // POST /new
-router.post("/new", listingsController.create);
+router.post("/", listingsController.create);
 // DELETE /:id
 router.delete("/:id", listingsController.delete);
 // GET /:id/edit

@@ -26,7 +26,7 @@ const port = process.env.PORT || 3001;
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 const ensureLoggedIn = require("./config/ensureLoggedIn");
-app.use("api/listings", ensureLoggedIn, require("./routes/api/listings"));
+app.use("/api/listings", ensureLoggedIn, require("./routes/api/listings"));
 
 
 
