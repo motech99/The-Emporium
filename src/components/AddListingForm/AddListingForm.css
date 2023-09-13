@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .body {
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+  }
+  
+  .h1-header {
+    font-weight: bold;
+    font-size: revert;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .login-suggestion {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+  }
+  
+  button {
+    margin: 20px;
+    border-radius: 20px;
+    border: 1px solid #ff9041;
+    background-color: #ff9041;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  button:hover {
+    transform: scale(1.1);
+    background-color: #ff2b2b;
+    border-color: #ff2b2b;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+  }
+  
+  form {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .custom-input,
+   select,
+  .custom-textarea {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    height: 750px;
+  }
+  
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+  
+  .sign-in-container {
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  
+  
+ 

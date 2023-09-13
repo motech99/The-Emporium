@@ -4,6 +4,7 @@
 }
 
 .grid {
+    width:99vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 5em;
@@ -26,22 +27,28 @@
     grid-area: sidebar;
   }
 
-  .content-one {
+  .content-1 {
     grid-area: content1;
   }
 
-  .content-two {
+  .content-2 {
     grid-area: content2;
   }
 
-  .content-three {
+  .content-3 {
     grid-area: content3;
   }
 
-  .content-four {
+  .content-4 {
     grid-area: content4;
+    background-color: FFD0A3;
   }
 
   .footer {
     grid-area: footer;
   }
+
+  .category-header {
+    align-self: flex-start;
+  }
+  

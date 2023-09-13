@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAll } from "../../utilities/listings-api";
+import "./AllListingPage.css";
 
 export default function AllListingPage() {
   // State to store the listings
@@ -21,21 +22,23 @@ export default function AllListingPage() {
   }, []);
 
   return (
-    <div className='flex justify-center m-8'>
-      <h1 className='text-5xl font-bold'>All Listing Page</h1>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+    <>
+    <div className='flex flex-col items-center m-8'>
+      <h1 className='text-5xl font-bold '>All Listing Page</h1>
+      <div className="grid grid-cols-3 gap-6 mt-4 ">
         {/* Map through the listings and display each one */}
         {listings.map((listing) => (
-          <div key={listing._id} className="border p-4">
+          <div key={listing._id} className="p-4 w-fit custom-listing">
             <h2 className="text-xl font-semibold">{listing.itemName}</h2>
-            <p>Category: {listing.category}</p>
-            <p>Condition: {listing.condition}</p>
-            <p>Auction closes: {listing.bidEndDate}</p>
-            <p>Description: {listing.description}</p>
-            <p>Current Price: ${listing.startingBid}</p>
+            <p><strong>Category:</strong> {listing.category}</p>
+            <p><strong>Condition:</strong> {listing.condition}</p>
+            <p><strong>Auction closes:</strong> {new Date(listing.bidEndDate).toLocaleString()}</p>
+            <p><strong>Description:</strong> {listing.description}</p>
+            <p><strong>Current Price:</strong> ${listing.startingBid}</p>
           </div>
         ))}
       </div>
     </div>
+      </>
   );
 }
