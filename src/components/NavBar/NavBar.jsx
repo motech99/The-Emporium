@@ -25,7 +25,7 @@ export default function NavBar({ user, setUser }) {
 <div className="flex flex-wrap">
   <section className="relative mx-auto">
     <nav className="flex justify-between overlay-custom  text-white w-screen">
-      <div className="px-5 xl:px-12 py-6 flex w-full items-center">
+      <div className="px-5 xl:px-6 py-2 flex w-full items-center">
       
           {/* <h2 className="text-4xl custom--hover custom--font">/h2> */}
           <div className="flex justify-start w-4">
@@ -34,8 +34,8 @@ export default function NavBar({ user, setUser }) {
           <Link className="text-4xl custom--hover custom--font" to='/home'>Emporium</Link>
         <ul className="hidden md:flex  px-4 mx-auto  font-heading space-x-12 text-lg font-medium">
         <li><Link className="custom--hover" to='/home'>Home</Link></li>
-          <li><a className="custom--hover" href="#">All Listings</a></li>
-          <li><a className="custom--hover" href="#">Add Listings</a></li>
+        <li><Link className="custom--hover" to='/all-listing'>All Listing</Link></li>
+          <li><Link className="custom--hover" to='/add-listing'>Add Listing</Link></li>
         </ul>
       </div>
       <ul className="hidden md:flex px-4 font-heading items-center space-x-12">
