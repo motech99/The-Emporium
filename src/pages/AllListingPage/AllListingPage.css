@@ -1,0 +1,24 @@
+
+
+.custom-listing {
+    padding: 10px 16px;
+    margin: 20px 0;
+
+/* Optionally if you want a border  */
+
+   /* border: solid black 2px;
+   border-radius: 10px; */   
+}
+
+
+  .custom-listing:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+    background-color: #d48d6438;
+    border-radius: 10px;
+  }
+  .custom-listing h2 {
+    font-size: 20px;
+    color: #f85b00;
+    margin-bottom: 8px;
+  }

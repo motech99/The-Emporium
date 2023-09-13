@@ -71,9 +71,9 @@
     text-align: center;
   }
   
-  input,
-  select,
-  textarea {
+  .custom-input,
+   select,
+  .custom-textarea {
     background-color: #eee;
     border: none;
     padding: 12px 15px;

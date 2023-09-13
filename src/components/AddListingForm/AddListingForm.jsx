@@ -60,7 +60,7 @@ export default class AddListingForm extends Component {
               <form autoComplete='off' onSubmit={this.handleSubmit}>
                 <h1 className='h1-header'>Add New Listing</h1>
                 <label>Item Name</label>
-                <input
+                <input className="custom-input"
                   type='text'
                   name='itemName'
                   value={this.state.itemName}
@@ -68,14 +68,14 @@ export default class AddListingForm extends Component {
                   required
                 />
                 <label>Description</label>
-                <textarea
+                <textarea className="custom-textarea"
                   name='description'
                   value={this.state.description}
                   onChange={this.handleChange}
                   required
                 />
                 <label>Condition</label>
-                <select
+                <select className="custom-select"
                   name='condition'
                   value={this.state.condition}
                   onChange={this.handleChange}
