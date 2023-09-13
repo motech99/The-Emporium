@@ -11,6 +11,7 @@
 - [ ] .
 - [ ] Backend
 - [ ] Frontend
+- [x] Landing Page
 
 # Technologies Used
 + MERN-Stack
@@ -28,3 +29,4 @@
 # Getting Started
 
 # Next Steps
++ Optimisation for dynamic rendering (mobile, etc.)
