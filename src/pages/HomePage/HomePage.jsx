@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         {listings.length === 0 ? (
           <p>Be the first to list something!</p>
         ) : (
@@ -70,7 +70,7 @@ export default function Home() {
           </>
         )}
         <button onClick={allListings}>All Listings</button>
-      </div>
+      </div> */}
     </>
   );
 }
