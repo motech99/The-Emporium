@@ -27,7 +27,11 @@ const listingSchema = new Schema({
     image: {
         type: String
     },
-    category: {type: Schema.Types.ObjectId, ref: 'Category'},
+    category: {
+        type: String,
+        enum: ["Trading Card", "Memorabilia", "Collectible", "Other"], 
+        required: true 
+    },
     description: {
         type: String
     },
