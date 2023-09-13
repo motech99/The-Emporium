@@ -86,7 +86,7 @@ export default class SignUpForm extends Component {
                 </button>
               </form>
             </div>
-            <div className="overlay-container">
+            {/* <div className="overlay-container">
               <div className="overlay">
                 <div className="overlay-panel overlay-left"></div>
                 <div className="overlay-panel overlay-right">
@@ -96,12 +96,12 @@ export default class SignUpForm extends Component {
                   </p>
                   <button className="ghost" onClick={this.props.toggleSignUp}>
                     {this.props.showSignUp ? "Log In" : "Sign Up"}
-                  </button>
+                  </button> */}
                 </div>
               </div>
-            </div>
+            {/* </div>
           </div>
-        </div>
+        </div> */}
       </>
     );
   }
