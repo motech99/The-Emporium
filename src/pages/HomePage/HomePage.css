@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 
-.grid {
+.customGrid {
     width:99vw;
     display: grid;
     grid-template-columns: repeat(5, 1fr);

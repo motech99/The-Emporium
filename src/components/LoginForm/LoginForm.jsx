@@ -40,7 +40,7 @@ export default function LoginForm({ setUser, showSignUp, toggleSignUp }) {
 
   return (
     <>
-      <div className="body">
+      <div className="body fade-in-faster">
         <div className="container">
           <div className="form-container sign-in-container">
             <form autoComplete="off" onSubmit={handleSubmit}>

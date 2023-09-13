@@ -18,3 +18,38 @@
   .custom--landing-font {
     font-family: 'Montserrat', sans-serif;
   }
+
+  @keyframes slideIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.slide-up {
+    animation: slideIn .8s forwards;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn .8s ease-in-out;
+    animation-delay: .5s;
+    animation-fill-mode: forwards; 
+}
+
+.fade-in-faster {
+    opacity: 0;
+    animation: fadeIn .5s ease-in-out;
+    animation-fill-mode: forwards; 
+}

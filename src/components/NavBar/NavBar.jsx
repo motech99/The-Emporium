@@ -41,7 +41,7 @@ export default function NavBar({ user, setUser }) {
                 </li>
                 <li>
                   <Link className="custom--hover custom--font text-background" to="/all-listing">
-                    All Listing
+                    All Listings
                   </Link>
                 </li>
                 <li>

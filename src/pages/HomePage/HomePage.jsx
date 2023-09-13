@@ -60,7 +60,7 @@ export default function HomePage() {
 
   return (
     <>
-      <main>
+      <main className="fade-in-faster">
         {/* Home Page Title
       <div className="flex justify-center m-8">
         <h1 className="text-5xl font-bold">Home Page</h1>
@@ -68,7 +68,7 @@ export default function HomePage() {
       
 
         {/* Search Bar */}
-        <div className="grid gap-y-5 gap-x-0 h-screen">
+        <div className="customGrid gap-y-5 gap-x-0 h-screen">
           <div class="searchbar h-1/1 bg-[#f7f2f2] rounded-lg shadow-md text-center">
             <input
               className="bg-background rounded-lg xl:w-5/6 w-1/2"
@@ -116,7 +116,7 @@ export default function HomePage() {
                 <Link to={`/listings/${listing._id}`}>
                 <div
                   key={listing._id}
-                  className="w-60 h-3/4 shadow-md mb-4 p-4 mx-2 hover:scale-105 hover:shadow-lg duration-200"
+                  className="w-60 h-1/ shadow-md mb-4 p-4 mx-2 hover:scale-105 hover:shadow-lg duration-200"
                 >
                   <div className="flex flex-col h-full">
 
