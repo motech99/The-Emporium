@@ -1,6 +1,8 @@
 import { useState, Component } from "react";
 import { addListing } from "../../utilities/listings-api";
+import { Navigate } from "react-router-dom";
 import "./AddListingForm.css";
+
 
 export default class AddListingForm extends Component {
   state = {
@@ -43,6 +45,7 @@ export default class AddListingForm extends Component {
       };
 
       const newListing = await addListing(formData);
+      this.setState({ submitted: true });
 
       console.log("New listing created:", newListing);
     } catch (error) {
@@ -52,6 +55,12 @@ export default class AddListingForm extends Component {
   };
 
   render() {
+    const { submitted } = this.state;
+
+    if (submitted) {
+      return <Navigate to="/all-listing" replace={true} />;
+    }
+    
     return (
       <>
         <div>

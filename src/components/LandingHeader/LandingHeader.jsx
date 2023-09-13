@@ -11,18 +11,18 @@ const LandingHeader = React.forwardRef(({ handleClick }, ref) => {
     <>
       <section className="xl:mr-36 snap-start snap-always">
         <h1 className="text-6xl md:text-9xl custom-landing-header max-w-screen-lg mt-48 md:text-left slide-up">
-          Empowering Your <span>Shopping</span> Experience
+          Empowering Your <span class="text-accent">Shopping</span> Experience
         </h1>
         <div className="my-24 md:mr-96 delay-1000 fade-in">
           <Link
             to="/login"
-            className="sm:text-3xl px-16 py-4 rounded-md bg-yellow-400 mr-10"
+            className="sm:text-3xl px-16 py-4 rounded-md bg-primary mr-10 shadow-lg"
           >
             Get Started
           </Link>
-          <button className="sm:text-3xl" onClick={handleButtonClick}>
+          <Link className="sm:text-3xl px-16" onClick={handleButtonClick}>
             Learn More <span className="text-yellow-400 ">{">>"}</span>
-          </button>
+          </Link>
         </div>
       </section>
     </>
