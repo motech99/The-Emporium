@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
-export default function SignUpFooter() {
+export default function SignUpFooter({ footerRef, footerIsVisible }) {
   return (
     <>
-      <footer className="m-24 snap-start snap-always	">
+      <footer
+        ref={footerRef}
+        className={`m-24 snap-start snap-always	opacity-0 ${
+          footerIsVisible ? "opacity-100 duration-1000" : ""
+        }`}
+      >
         <h2 className="my-6 font-bold text-2xl">
           Do that thing you wanted to do. <br></br> Don't miss out on great
           deals!

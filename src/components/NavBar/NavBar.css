@@ -7,3 +7,11 @@
   .custom--hover:hover {
     color: #ffffff;
   }
+
+  .overlay-custom {
+    background: #ff9041;
+    background: -webkit-linear-gradient(to right, #ff2b2b, #ff9041);
+    background: linear-gradient(to right, #ff2b36, #ff9a41);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

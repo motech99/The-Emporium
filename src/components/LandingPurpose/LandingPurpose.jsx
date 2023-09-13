@@ -1,11 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 const LandingPurpose = React.forwardRef((props, ref) => {
+  const { aboutRef, aboutIsVisible } = props;
+  
   return (
     <>
-      <section className="h-screen flex flex-row lg:max-w-max snap-start snap-always">
-        <img src="images/test.jpg" className="w-6/12 object-cover" />
-        <div ref={ref}>
+      <section ref={aboutRef} className="flex flex-row lg:max-w-max snap-start snap-always">
+        <img src="images/test.jpg" className={`w-6/12 object-cover opacity-0 ${aboutIsVisible ? "opacity-100 duration-1000 ": ""}`}/>
+        <div
+          ref={ref}
+          className={`opacity-0 ${aboutIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}
+        >
           <h2>Our Purpose</h2>
           <p>
             Welcome to The Emporium, where endless possibilities await. Whether

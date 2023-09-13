@@ -1,7 +1,7 @@
-export default function LandingProcess() {
+export default function LandingProcess({ processRef, processIsVisible }) {
   return (
     <>
-      <section className="h-screen snap-start snap-always	">
+      <section ref={processRef} className={`snap-start snap-always opacity-0 ${processIsVisible ? "opacity-100 duration-1000" : ""}`}>
         <div className="text-left max-w-xl text mx-20 my-28">
           <h2 className="font-extrabold text-5xl text-left my-4">
             How it all works
@@ -12,7 +12,7 @@ export default function LandingProcess() {
             selling items.
           </p>
         </div>
-        <div className="md:flex">
+        <div className={`md:flex opacity-0 ${processIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}>
           <div className="mx-20 md:max-w-md">
             <img src="images/test.jpg" alt="" className="h-1/4 rounded-lg" />
             <h3 className="text-left font-bold text-2xl my-4">Easy Bidding</h3>
