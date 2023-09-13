@@ -28,11 +28,13 @@ export default function NavBar({ user, setUser }) {
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
       
           {/* <h2 className="text-4xl custom--hover custom--font">/h2> */}
+          <div className="flex justify-start w-4">
+      <h1 className="custom--font">T H E</h1>
+      </div>
           <Link className="text-4xl custom--hover custom--font" to='/home'>Emporium</Link>
         <ul className="hidden md:flex  px-4 mx-auto  font-heading space-x-12 text-lg font-medium">
-          <li><a className="custom--hover" href="#">Home</a></li>
-          <li><a className="custom--hover" href="#">Category</a></li>
-          <li><a className="custom--hover" href="#">Collections</a></li>
+        <li><Link className="custom--hover" to='/home'>Home</Link></li>
+          <li><a className="custom--hover" href="#">All Listings</a></li>
           <li><a className="custom--hover" href="#">Add Listings</a></li>
         </ul>
       </div>

@@ -1,0 +1,15 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.custom--border-bottom {
+border-bottom: 4px solid #FFA061;
+}
+
+.custom--positon {
+top: 200px;
+right: 0;
+bottom: 0;
+left: 0;
+}
