@@ -18,7 +18,7 @@ export default function App() {
           <Routes>
             <Route path="/home" element={<HomePage />} />
             {/* Route components in here */}
-            <Route path="*" element={<Navigate to="/home"/>} />
+            <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </>
       ) : (

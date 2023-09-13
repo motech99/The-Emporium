@@ -25,7 +25,7 @@ export default function NavBar({ user, setUser }) {
 <div className="flex flex-wrap">
   <section className="relative mx-auto">
     <nav className="flex justify-between overlay-custom  text-white w-screen">
-      <div className="px-5 xl:px-12 py-6 flex w-full items-center">
+      <div className="px-5 xl:px-6 py-2 flex w-full items-center">
       
           {/* <h2 className="text-4xl custom--hover custom--font">/h2> */}
           <div className="flex justify-start w-4">
