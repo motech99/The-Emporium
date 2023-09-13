@@ -17,6 +17,6 @@ export function removeListing(listingData) {
 
 }
 
-export function updateListing(listingData) {
+export function updateListing(listingData, id) {
   return sendRequest(`BASE_URL/${id}`, 'PUT', listingData);
 }
