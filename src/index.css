@@ -8,8 +8,7 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Quicksand', sans-serif;
-  
+    font-family: 'Quicksand', sans-serif;  
   }
 
   .custom--font {
