@@ -12,9 +12,9 @@ export default function LandingProcess({ processRef, processIsVisible }) {
             selling items.
           </p>
         </div>
-        <div className={`md:flex opacity-0 ${processIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}>
+        <div className={`md:flex border-b border-gray-400 my-6 opacity-0 ${processIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}>
           <div className="mx-20 md:max-w-md">
-            <img src="images/test.jpg" alt="" className="h-1/4 rounded-lg" />
+            <img src="images/trolley.gif" alt="" className="h-1/4 rounded-lg" />
             <h3 className="text-left font-bold text-2xl my-4">Easy Bidding</h3>
             <p className="text-left text-lg">
               Bidding on our marketplace is a breeze. Simply find the item you
@@ -23,7 +23,7 @@ export default function LandingProcess({ processRef, processIsVisible }) {
             </p>
           </div>
           <div className="mx-20 md:max-w-md">
-            <img src="images/test.jpg" alt="" className="h-1/4 rounded-lg" />
+            <img src="images/celebrate.gif" alt="" className="h-1/4 rounded-lg" />
             <h3 className="text-left font-bold text-2xl my-4">
               Winning Made Simple
             </h3>
@@ -34,7 +34,7 @@ export default function LandingProcess({ processRef, processIsVisible }) {
             </p>
           </div>
           <div className="mx-20 md:max-w-md">
-            <img src="images/test.jpg" alt="" className="h-1/4 rounded-lg" />
+            <img src="images/coins.gif" alt="" className="h-1/4 rounded-lg" />
             <h3 className="text-left font-bold text-2xl my-4">
               Seamless Selling Experience
             </h3>

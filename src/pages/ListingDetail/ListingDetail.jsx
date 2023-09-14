@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getById } from "../../utilities/listings-api";
+import Footer from "../../components/Footer/Footer";
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
 
-
-
   let { listingId } = useParams();
   console.log(`listingId: ${listingId}`);
-  
 
   // Function to fetch all listings
   const fetchListing = async () => {
     try {
       const data = await getById(listingId);
       setListing(data);
-      console.log('data: ', data);
-      console.log('sListings: ', setListing(data));
+      console.log("data.bids", data.bids);
     } catch (error) {
       console.error("Error fetching listings:", error);
     }
@@ -28,29 +25,61 @@ export default function ListingDetail() {
   }, []);
 
   if (listing === null) {
-    return (
-      <p>Loading</p>
-    )
+    return <p>Loading</p>;
   }
   return (
-    <div className="flex justify-center m-8">
-      <h2 className="text-xl font-semibold">{listing.itemName}</h2>
-      <p>
-        <strong>Category:</strong> {listing.category}
-      </p>
-      <p>
-        <strong>Condition:</strong> {listing.condition}
-      </p>
-      <p>
-        <strong>Auction closes:</strong>
-        {new Date(listing.bidEndDate).toLocaleString()}
-      </p>
-      <p>
-        <strong>Description:</strong> {listing.description}
-      </p>
-      <p>
-        <strong>Current Price:</strong> ${listing.startingBid}
-      </p>
-    </div>
+    <>
+      <div className="grid grid-cols-4">
+        {/* ITEM IMAGE */}
+        <div className="col-start-2 col-end-3">
+          <img
+            className="h-full w-auto object-cover rounded-md"
+            src=""
+            alt=""
+          ></img>
+        </div>
+
+        {/* ITEM DETAILS */}
+        <div className="col-start-3 col-end-4 w-full">
+          <h2 className="text-4xl text-left mt-20 mb-10">{listing.itemName}</h2>
+          <p className="my-4">
+            <strong>Current Price:</strong>{" "}
+            <span className="m-5 text-2xl text-contrast">
+              ${listing.startingBid}
+            </span>
+          </p>
+          <p className="italic">
+            Auction closes at {new Date(listing.bidEndDate).toLocaleString()}
+          </p>
+
+          {/* BIDDNGS */}
+          <div className="">
+            {listing.bids.map((bid, index) => (
+              <p key={index}>
+                Bid {bid.bid} date: {bid.date} bidder: {bid.bidder}
+              </p>
+            ))}
+          </div>
+
+          {/* DESCRIPTION */}
+          <div className="flex gap-10 my-10">
+            <div className="font-semibold flex-col ">
+              <p>Category</p>
+              <p>Condition</p>
+            </div>
+            <div className="flex-col">
+              <p>{listing.category}</p>
+              <p>{listing.condition}</p>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-400 my-14">
+            <h3 className="text-xl mt-6">About this item</h3>
+            <p>{listing.description}</p>
+          </div>
+        </div>
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }
