@@ -14,6 +14,23 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [listings, setListings] = useState([]);
 
+  const [image, setImage] = useState('');
+
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "react-cloudinary")
+    data.append("cloud_name", "duqoyinil")
+    return fetch("https://api.cloudinary.com/v1_1/duqoyinil/image/upload",{
+      method: "post",
+      body: data
+    }).then(res => res.json())
+        .catch(err => { 
+          console.log("is this where the error is")
+          console.log(err)}) 
+  }
+  
+
   return (
     <main className="App">
       {user ? (
@@ -24,8 +41,8 @@ export default function App() {
             <Route path="/home" element={<HomePage user={user} listings={listings} setListings={setListings} />} />
             <Route path="*" element={<Navigate to="/home" />} />
             <Route path="/listings/:listingId" element={<ListingDetail listings={listings} setListings={setListings}/>} />
-            <Route path="/all-listing" element={<AllListingPage />} />
-            <Route path="/add-listing" element={<AddListingPage />} />
+            <Route path="/all-listing" element={<AllListingPage  />} />
+            <Route path="/add-listing" element={<AddListingPage image={image} setImage={setImage} uploadImage={uploadImage} />} />
           </Routes>
         </>
       ) : (

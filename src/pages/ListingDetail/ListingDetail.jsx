@@ -34,7 +34,7 @@ export default function ListingDetail() {
         <div className="col-start-2 col-end-3">
           <img
             className="h-full w-auto object-cover rounded-md"
-            src=""
+            src={listing.image}
             alt=""
           ></img>
         </div>

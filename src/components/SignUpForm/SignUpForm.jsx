@@ -40,7 +40,7 @@ export default class SignUpForm extends Component {
 
     return (
       <>
-        <div className="body">
+        <div className="body fade-in-faster">
           <div className="container">
             <div className="form-container sign-in-container m-1">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
