@@ -35,16 +35,16 @@ export default function ListingDetail() {
   const handleSubmitBid = async (evt) => {
     evt.preventDefault();
     const bidData = {
-      bidAmount: bidAmount,
+      // bidAmount: bidAmount,
     };
 
     try {
       // Make an AJAX request to add the bid
-      const updatedListing = await addBid(listingId, bidData);
-      // Update the listing in the state
-      setListing(updatedListing);
-      // Clear the bid amount input after submission
-      setBidAmount("");
+      // const updatedListing = await addBid(listingId, bidData);
+      // // Update the listing in the state
+      // setListing(updatedListing);
+      // // Clear the bid amount input after submission
+      // setBidAmount("");
     } catch (err) {
       console.error("Error adding bid:", err);
     }
