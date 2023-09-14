@@ -39,8 +39,10 @@ export default function ListingDetail() {
         {/* ITEM IMAGE */}
         <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
-            className="object-cover rounded-md min-h-full"
-            src={listing.image}></img>
+            className="object-scale-down rounded-md min-h-full"
+            src={listing.image}
+            alt=""
+          ></img>
         </div>
 
         <btn></btn>
