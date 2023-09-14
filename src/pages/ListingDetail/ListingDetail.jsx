@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
+import './ListingDetail.css'
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
@@ -50,10 +51,12 @@ export default function ListingDetail() {
     } catch (err) {
       console.error("Error adding bid:", err);
     }
-  }
+  };
 
   const handleDeleteListing = async () => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this listing?');
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
     if (confirmDelete) {
       try {
         await deleteListing(listingId);
@@ -106,49 +109,58 @@ export default function ListingDetail() {
           </div>
           {/* DELETE & EDIT BUTTONS */}
           {/* {user._id === listing.seller._id ? (   */}
-            <>
-              <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
-                Delete Listing
-              </button>
-              <button
-                className="bg-[#ff9041] button-custom"
-                type="button"
-                onClick={handleEditListing}
-              >
-                Edit Listing
-              </button>
-            </>
-            {/* ) : null} */}
+          <div>
+            <button
+              className="bg-[#f52d12] button-custom"
+              type="button"
+              onClick={handleDeleteListing}
+            >
+              Delete Listing
+            </button>
+            <button
+              className="bg-[#ff9041] button-custom"
+              type="button"
+              onClick={handleEditListing}
+            >
+              Edit Listing
+            </button>
+          </div>
+          {/* ) : null} */}
+
+
+        {/* BID FORM */}
+        <form className="bidForm" onSubmit={handleSubmitBid}>
+          <label htmlFor="bidAmount">Bid Amount:</label>
+          <input
+          className="w-32 rounded-md ml-4"
+            type="number"
+            id="bidAmount"
+            name="bidAmount"
+            value={bidAmount}
+            onChange={(e) => setBidAmount(e.target.value)}
+            required
+          />
+          <button className="bg-[#ff9041] button-custom" type="submit">
+            Place Bid
+          </button>
+        </form>
+        {/* BIDS DISPLAY */}
+        <div className="">
+          {listing.bids.map((bid, index) => (
+            <p key={index}>
+              Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
+            </p>
+          ))}
         </div>
+
+
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
-        
-          {/* BID FORM */}
-          <form onSubmit={handleSubmitBid}>
-            <label htmlFor="bidAmount">Bid Amount:</label>
-            <input
-              type="number"
-              id="bidAmount"
-              name="bidAmount"
-              value={bidAmount}
-              onChange={(e) => setBidAmount(e.target.value)}
-              required
-            />
-            <button className="bg-[#ff9041] button-custom" type="submit">
-              Place Bid
-            </button>
-          </form>
-          {/* BIDS DISPLAY */}
-          <div className=''>
-            {listing.bids.map((bid, index) => (
-              <p key={index}>
-                Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
-              </p>
-            ))}
-          </div>
         </div>
+
+      </div>
       {/* <Footer /> */}
     </>
   );
