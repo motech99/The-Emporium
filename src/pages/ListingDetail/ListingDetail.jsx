@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { getById } from "../../utilities/listings-api";
 import Footer from "../../components/Footer/Footer";
 
@@ -23,6 +23,11 @@ export default function ListingDetail() {
   useEffect(() => {
     fetchListing();
   }, []);
+
+  const handleEditListing = () => {
+    console.log(555555)
+    return <Navigate to={`/edit-listing/${listingId}`} replace={true} />;
+  };
 
   if (listing === null) {
     return <p>Loading</p>;
@@ -78,9 +83,13 @@ export default function ListingDetail() {
               <button className='bg-[#f52d12] button-custom' type='submit'>
                   Delete Listing
                 </button>
-              <button className='bg-[#ff9041]' type='submit'>
-                  Edit Listing
-                </button>
+              <button
+                className="bg-[#ff9041] button-custom"
+                type="button"
+                onClick={handleEditListing}
+              >
+                Edit Listing
+              </button>
               </div>
 
           <div className="border-t border-gray-400 my-14">
