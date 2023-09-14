@@ -36,7 +36,7 @@ export default function HomePage() {
   const categories = ["Trading Card", "Memorabilia", "Collectible", "Other"];
   const groupedListings = categories.map((category) => ({
     category,
-    listings: filterListingsByCategory(category).slice(0, 5), // Limit to top 5 listings per category
+    listings: filterListingsByCategory(category).slice(0, 3), // Limit to top 5 listings per category
   }));
 
   // Display the last 4 listings in the "Latest Listing" section
