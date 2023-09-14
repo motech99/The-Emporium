@@ -2,7 +2,7 @@ export default function LandingProcess({ processRef, processIsVisible }) {
   return (
     <>
       <section ref={processRef} className={`snap-start snap-always opacity-0 ${processIsVisible ? "opacity-100 duration-1000" : ""}`}>
-        <div className="text-left max-w-xl text mx-20 my-28">
+        <div className="text-left max-w-xl text mx-20 my-28 bg-secondary p-10 rounded-xl">
           <h2 className="font-extrabold text-5xl text-left my-4">
             How it all works
           </h2>

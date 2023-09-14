@@ -10,8 +10,7 @@ export default function SignUpFooter({ footerRef, footerIsVisible }) {
         }`}
       >
         <h2 className="my-6 font-bold text-2xl">
-          Do that thing you wanted to do. <br></br> Don't miss out on great
-          deals!
+        Join our website today and gain access to exclusive deals and promotions  <br></br> Don't miss out on hidden treasures!
         </h2>
         <p className="mb-12">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque harum
@@ -22,8 +21,8 @@ export default function SignUpFooter({ footerRef, footerIsVisible }) {
         <Link
           to="/login"
           className="sm:text-2xl px-16 py-4 rounded-md bg-primary mr-10 shadow-lg custom-btn"
-        >
-          Sign up for free
+          >
+          Sign up for free (this button is not supposed to be this wide)
         </Link>
       </footer>
     </>
