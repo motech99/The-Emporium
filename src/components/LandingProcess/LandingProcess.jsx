@@ -12,7 +12,7 @@ export default function LandingProcess({ processRef, processIsVisible }) {
             selling items.
           </p>
         </div>
-        <div className={`md:flex border-b border-gray-400 my-6 opacity-0 ${processIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}>
+        <div className={`md:flex border-b border-contrast mb-20 opacity-0 ${processIsVisible ? "opacity-100 duration-1000 delay-700" : ""}`}>
           <div className="mx-20 md:max-w-md">
             <img src="images/trolley.gif" alt="" className="h-1/4 rounded-lg" />
             <h3 className="text-left font-bold text-2xl my-4">Easy Bidding</h3>

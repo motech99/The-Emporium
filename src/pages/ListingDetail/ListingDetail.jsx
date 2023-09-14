@@ -29,15 +29,18 @@ export default function ListingDetail() {
   }
   return (
     <>
-      <div className="grid grid-cols-4">
+       <div className="grid grid-cols-4 grid-auto-rows-auto gap-5">
+
         {/* ITEM IMAGE */}
-        <div className="col-start-2 col-end-3">
+        <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
-            className="h-full w-auto object-cover rounded-md"
+            className="object-cover rounded-md min-h-full"
             src={listing.image}
             alt=""
           ></img>
         </div>
+
+        <btn></btn>
 
         {/* ITEM DETAILS */}
         <div className="col-start-3 col-end-4 w-full">
@@ -73,7 +76,7 @@ export default function ListingDetail() {
             </div>
           </div>
 
-          <div className="border-t border-gray-400 my-14">
+          <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>

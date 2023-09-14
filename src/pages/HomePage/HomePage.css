@@ -52,3 +52,16 @@
     align-self: flex-start;
   }
   
+
+  .card-sm {
+    height: 24rem;
+    width: 15rem;
+  }
+
+  .card-md {
+    height: 27rem;
+    width: auto;
+  }
+
+  .card-lg {
+  }

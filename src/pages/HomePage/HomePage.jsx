@@ -39,8 +39,8 @@ export default function HomePage() {
     listings: filterListingsByCategory(category).slice(0, 5), // Limit to top 5 listings per category
   }));
 
-  // Display the last 8 listings in the "Latest Listing" section
-  const latestListings = listings.slice(0, 8); // Change the number as needed
+  // Display the last 4 listings in the "Latest Listing" section
+  const latestListings = listings.slice(0, 4); // Change the number as needed
 
   // export default function HomePage({ user, listings, setListings }) {
   //   async function allListings() {
@@ -86,26 +86,34 @@ export default function HomePage() {
               Newest Listings
             </h3>
             {latestListings.map((listing) => (
-              <div key={listing._id} className="m-4 custom--border-bottom">
-                <h2 className="text-xl font-semibold mb-2.5 ">{listing.itemName}</h2>
-                <div className="flex flex-col items-center">
-                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
+              <Link to={`/listings/${listing._id}`}>
+                <div
+                  key={listing._id}
+                  className="flex flex-col items-center gap-4 m-4 card-md custom--border-bottom shadow"
+                >
+                  <div className=" h-3/5">
+                    <img
+                      className="min-h-full h-full rounded"
+                      src={listing.image}
+                    />
+                  </div>
+                  <div className="h-1/5">
+                    <h3 className="font-semibold text-xl border-b border-accent"> {listing.itemName} </h3>
+                    <p>Category: {listing.category}</p>
+                    <p>Condition: {listing.condition}</p>
+                    <p>
+                      Auction closes:
+                      {new Date(listing.bidEndDate).toLocaleString()}
+                    </p>
+                    <p>Current Price: <span className="text-contrast text-lg font-semibold">${listing.startingBid}</span></p>
+                  </div>
                 </div>
-                <p><strong>Category:</strong> {listing.category}</p>
-                <p> <strong>Condition:</strong> {listing.condition}</p>
-                <p>
-                  <strong>Auction closes:</strong>{" "}
-                  {new Date(listing.bidEndDate).toLocaleString()}
-                </p>
-                <p> <strong>Description:</strong> {listing.description}</p>
-                <p><strong>Current Price:</strong> ${listing.startingBid}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
           {/* Sorted by Categories Section */}
           {groupedListings.map((group, index) => (
-
             // New section is created for every category
             <section
               key={group.category}
@@ -116,45 +124,44 @@ export default function HomePage() {
               <h2 className="text-3xl text-left text-white ml-10 mt-5 custom--font category-header">
                 {group.category}
               </h2>
-              
+
               {/* Listing Items */}
               {group.listings.map((listing) => (
                 <Link to={`/listings/${listing._id}`}>
-                <div
-                  key={listing._id}
-                  className="w-60 h-1/ shadow-md mb-4 p-4 mx-2 hover:scale-105 hover:shadow-lg duration-200"
-                >
-                  <div className="flex flex-col h-full">
+                  <div
+                    key={listing._id}
+                    className="bg-[#ede8e8] card-sm shadow-md mt-24 mb-10 p-4 mx-2 hover:scale-105 hover:shadow-lg duration-100"
+                  >
+                    <div className="flex flex-col h-full">
+                      <div className="flex flex-col h-2/3 items-center">
+                        <img
+                          className="h-full w-full min-h-full object-cover mb-10 rounded"
+                          src={listing.image}
+                        />
+                      </div>
 
-                  <div className="flex flex-col items-center">
-                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
-                </div>
+                      <div className="justify-end h-1/3">
+                        <h2 className="text-xl font-semibold">
+                          {listing.itemName}
+                        </h2>
+                        <br />
+                        <p className="text-center">
+                          Currently{" "}
+                          <span className="font-semibold">
+                            ${listing.startingBid}
+                          </span>
+                        </p>
+                        <p className="text-center">Auction closes: </p>
+                        <span className="font-semibold pl-6">
+                          {new Date(listing.bidEndDate).toLocaleString()}
+                        </span>
 
-                    <div className="justify-end">
-                      <h2 className="text-xl font-semibold">
-                        {listing.itemName}
-                      </h2>
-                      <br />
-                      <p className="text-center">
-                        Currently{" "}
-                        <span className="font-semibold">
-                          ${listing.startingBid}
-                        </span>
-                      </p>
-                      <p className="text-center">
-                        Auction closes:{" "} 
-                      </p>
-                        <span className="font-semibold">
-                        {new Date(listing.bidEndDate).toLocaleString()}
-                        </span>
-              
-                      {/* <p>Condition: {listing.condition}</p> */}
-                      {/* <p>Category: {listing.category}</p> */}
-                      {/* <p>Description: {listing.description}</p> */}
+                        {/* <p>Condition: {listing.condition}</p> */}
+                        {/* <p>Category: {listing.category}</p> */}
+                        {/* <p>Description: {listing.description}</p> */}
+                      </div>
                     </div>
-
                   </div>
-                </div>
                 </Link>
               ))}
             </section>
