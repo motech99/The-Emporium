@@ -97,7 +97,6 @@ async function edit(req, res) {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
       }
-    
     // const listing = await Listing.findOne({'listings._id': req.params.id});
     // // res.render('boardgames/edit', { title: "Edit Review", review });
 }

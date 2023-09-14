@@ -29,7 +29,7 @@ export default function EditListingForm({ listing, onEdit }) {
     try {
       const updatedListing = await editListing(listing._id, formData);
       setSubmitted(true);
-      onEdit(updatedListing); // Callback to update the listing in the parent component
+      onEdit(updatedListing);
     } catch (error) {
       console.error("Error editing listing:", error);
       setError("Listing update failed - Try Again");
