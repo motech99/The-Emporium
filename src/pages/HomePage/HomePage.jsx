@@ -98,14 +98,22 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="h-1/5">
-                    <h3 className="font-semibold text-xl border-b border-accent"> {listing.itemName} </h3>
+                    <h3 className="font-semibold text-xl border-b border-accent">
+                      {" "}
+                      {listing.itemName}{" "}
+                    </h3>
                     <p>Category: {listing.category}</p>
                     <p>Condition: {listing.condition}</p>
                     <p>
                       Auction closes:
                       {new Date(listing.bidEndDate).toLocaleString()}
                     </p>
-                    <p>Current Price: <span className="text-contrast text-lg font-semibold">${listing.startingBid}</span></p>
+                    <p>
+                      Current Price:{" "}
+                      <span className="text-contrast text-lg font-semibold">
+                        ${listing.startingBid}
+                      </span>
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -135,13 +143,13 @@ export default function HomePage() {
                     <div className="flex flex-col h-full">
                       <div className="flex flex-col h-2/3 items-center">
                         <img
-                          className="h-full w-full min-h-full object-cover mb-10 rounded"
+                          className="h-full w-full min-h-full min-w-full object-cover mb-10 rounded"
                           src={listing.image}
                         />
                       </div>
 
-                      <div className="justify-end h-1/3">
-                        <h2 className="text-xl font-semibold">
+                      <div className="h-1/3 flex flex-col justify-end">
+                        <h2 className="text-xl font-semibold line-clamp-2">
                           {listing.itemName}
                         </h2>
                         <br />
@@ -151,10 +159,12 @@ export default function HomePage() {
                             ${listing.startingBid}
                           </span>
                         </p>
-                        <p className="text-center">Auction closes: </p>
-                        <span className="font-semibold pl-6">
-                          {new Date(listing.bidEndDate).toLocaleString()}
-                        </span>
+                        <p className="text-left text-xs">
+                          Auction closes:
+                          <span className="pl-2 text-xs">
+                            {new Date(listing.bidEndDate).toLocaleString()}
+                          </span>
+                        </p>
 
                         {/* <p>Condition: {listing.condition}</p> */}
                         {/* <p>Category: {listing.category}</p> */}
