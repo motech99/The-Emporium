@@ -52,7 +52,7 @@ export default function ListingDetail() {
             Auction closes at {new Date(listing.bidEndDate).toLocaleString()}
           </p>
 
-          {/* BIDDNGS */}
+          {/* BIDDINGS */}
           <div className="">
             {listing.bids.map((bid, index) => (
               <p key={index}>
