@@ -9,6 +9,7 @@ import HomePage from "../HomePage/HomePage";
 import AllListingPage from "../AllListingPage/AllListingPage";
 import AddListingPage from "../AddListingPage/AddListingPage";
 import ListingDetail from "../ListingDetail/ListingDetail";
+import EditListingPage from "../EditListingPage/EditListingPage";
 
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/listings/:listingId" element={<ListingDetail listings={listings} setListings={setListings}/>} />
             <Route path="/all-listing" element={<AllListingPage  />} />
             <Route path="/add-listing" element={<AddListingPage image={image} setImage={setImage} uploadImage={uploadImage} />} />
+            <Route path="/edit-listing/:listingId" element={<EditListingPage image={image} setImage={setImage} uploadImage={uploadImage} />} />
           </Routes>
         </>
       ) : (

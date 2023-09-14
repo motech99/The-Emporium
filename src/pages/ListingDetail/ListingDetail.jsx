@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { getById } from "../../utilities/listings-api";
 import Footer from "../../components/Footer/Footer";
 
@@ -24,19 +24,27 @@ export default function ListingDetail() {
     fetchListing();
   }, []);
 
+  const handleEditListing = () => {
+    console.log(555555)
+    return <Navigate to={`/edit-listing/${listingId}`} replace={true} />;
+  };
+
   if (listing === null) {
     return <p>Loading</p>;
   }
   return (
     <>
-      <div className='grid grid-cols-4'>
+       <div className="grid grid-cols-4 grid-auto-rows-auto gap-5">
+
         {/* ITEM IMAGE */}
-        <div className='col-start-2 col-end-3'>
+        <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
-            className='h-full w-auto object-cover rounded-md'
+            className="object-cover rounded-md min-h-full"
             src={listing.image}
             alt=''></img>
         </div>
+
+        <btn></btn>
 
         {/* ITEM DETAILS */}
         <div className='col-start-3 col-end-4 w-full'>
@@ -72,23 +80,23 @@ export default function ListingDetail() {
             </div>
           </div>
 
-          <div>
-            <button className='bg-[#f56d12] ' type='submit'>
-              Delete Listing
-            </button>
-            <Link to='/:id/edit'>
-          <button className='bg-[#ff9041]' type='submit'>
-        Edit Listing
-         </button>
-    </Link>
-          </div>
+              <button className='bg-[#f52d12] button-custom' type='submit'>
+                  Delete Listing
+                </button>
+              <button
+                className="bg-[#ff9041] button-custom"
+                type="button"
+                onClick={handleEditListing}
+              >
+                Edit Listing
+              </button>
+              </div>
 
-          <div className='border-t border-gray-400 my-14'>
-            <h3 className='text-xl mt-6'>About this item</h3>
+          <div className="border-t border-contrast my-14">
+            <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
         </div>
-      </div>
       {/* <Footer /> */}
     </>
   );
