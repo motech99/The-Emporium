@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getById } from "../../utilities/listings-api";
 import Footer from "../../components/Footer/Footer";
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
+  const navigate = useNavigate(); 
 
   let { listingId } = useParams();
-  console.log(`listingId: ${listingId}`);
 
   // Function to fetch all listings
   const fetchListing = async () => {
     try {
       const data = await getById(listingId);
       setListing(data);
-      console.log("data.bids", data.bids);
     } catch (error) {
-      console.error("Error fetching listings:", error);
+      console.error("Error fetching listing:", error);
     }
   };
-  // Fetch listings when the component mounts
+
+  // Fetch the listing when the component mounts
   useEffect(() => {
     fetchListing();
   }, []);
 
   const handleEditListing = () => {
-    console.log(555555)
-    return <Navigate to={`/edit-listing/${listingId}`} replace={true} />;
+    // Use the navigate function to redirect to the edit page
+    navigate(`/edit-listing/${listingId}`);
   };
 
   if (listing === null) {
@@ -40,8 +40,7 @@ export default function ListingDetail() {
         <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
             className="object-cover rounded-md min-h-full"
-            src={listing.image}
-            alt=''></img>
+            src={listing.image}></img>
         </div>
 
         <btn></btn>
@@ -83,13 +82,13 @@ export default function ListingDetail() {
               <button className='bg-[#f52d12] button-custom' type='submit'>
                   Delete Listing
                 </button>
-              <button
-                className="bg-[#ff9041] button-custom"
-                type="button"
-                onClick={handleEditListing}
-              >
-                Edit Listing
-              </button>
+                <button
+        className="bg-[#ff9041] button-custom"
+        type="button"
+        onClick={handleEditListing}
+      >
+        Edit Listing
+      </button>
               </div>
 
           <div className="border-t border-contrast my-14">

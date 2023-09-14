@@ -151,7 +151,7 @@ export default function HomePage() {
                             ${listing.startingBid}
                           </span>
                         </p>
-                        <p className="text-center">Auction closes: </p>
+                        <p className="text-center">Auction closes:  </p>
                         <span className="font-semibold pl-6">
                           {new Date(listing.bidEndDate).toLocaleString()}
                         </span>
