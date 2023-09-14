@@ -13,6 +13,10 @@ export function getById(_id) {
   return sendRequest(`${BASE_URL}/${_id}`);
 }
 
+export function getUserListings(userId) {
+  return sendRequest(`${BASE_URL}/${userId}`);
+};
+
 export function addListing(listingData) {
   return sendRequest(BASE_URL, 'POST', listingData);
 }

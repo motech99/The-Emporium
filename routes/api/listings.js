@@ -5,12 +5,14 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // All paths start with '/api/listings'
 
-// GET /
+// GET / (SHOW ALL)
 router.get('/', listingsController.getAll);
-// GET /:id
+// GET /:id (SHOW ONE)
 router.get('/:id', listingsController.show);
-//GET /
+//GET / (SHOW BY CATEGORY)
 router.get('/home', listingsController.getListingByCategory);
+// // GET /user._id (SHOW USER'S LISTINGS)
+// router.get('/user._id', listingsController.getUserListings);
 // POST /new
 router.post("/", listingsController.create);
 // DELETE /:id

@@ -5,7 +5,7 @@ module.exports = {
   getAll,
   show,
   create,
-  getUserListing,
+  getUserListings,
   delete: deleteListing,
   edit,
   update,
@@ -33,9 +33,6 @@ async function getListingByCategory(req, res) {
         console.error("Error fetching listings by category:", error);
         res.status(500).json({ error: "Internal Server Error" });
       }
-    
-    // const listings = await Listing.find({}).sort([{ "category": 1 },{ bidStartDate: -1 }]).limit(3).exec();
-    // res.json(listings);
 }
 
 async function show(req, res) {
@@ -43,12 +40,12 @@ async function show(req, res) {
   res.json(listing);
 }
 
-async function getUserListing(req, res) {
+async function getUserListings(req, res) {
     const listings = await Listing.find({
         user: req.seller._id
     }).sort({ bidStartDate: -1 }).exec();
     res.json(listings);
-  }
+}
 
 async function create(req, res) {
     try {    

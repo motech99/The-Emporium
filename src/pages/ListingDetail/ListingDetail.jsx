@@ -38,8 +38,9 @@ export default function ListingDetail() {
     const bidData = {
       bidAmount: bidAmount,
     };
-
+    console.log(bidData);
     try {
+      console.log(bidData);
       // Make an AJAX request to add the bid
       const updatedListing = await addBid(listingId, bidData);
       // Update the listing in the state
@@ -104,18 +105,21 @@ export default function ListingDetail() {
             </div>
           </div>
           {/* DELETE & EDIT BUTTONS */}
-          <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
-            Delete Listing
-          </button>
-          <button
-            className="bg-[#ff9041] button-custom"
-            type="button"
-            onClick={handleEditListing}
-          >
-            Edit Listing
-          </button>
+          {/* {user._id === listing.seller._id ? (   */}
+            <>
+              <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
+                Delete Listing
+              </button>
+              <button
+                className="bg-[#ff9041] button-custom"
+                type="button"
+                onClick={handleEditListing}
+              >
+                Edit Listing
+              </button>
+            </>
+            {/* ) : null} */}
         </div>
-
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
@@ -144,7 +148,6 @@ export default function ListingDetail() {
               </p>
             ))}
           </div>
-
         </div>
       {/* <Footer /> */}
     </>
