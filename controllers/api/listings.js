@@ -1,5 +1,6 @@
 const Listing = require('../../models/listing');
 
+
 module.exports = {
   getAll,
   show,
@@ -7,12 +8,34 @@ module.exports = {
   getUserListing,
   delete: deleteListing,
   edit,
-  update
+  update,
+  getListingByCategory
 };
 
 async function getAll(req, res) {
   const listings = await Listing.find({}).sort({ bidStartDate: -1 }).exec();
   res.json(listings);
+}
+
+async function getListingByCategory(req, res) {
+    try {
+        // Fetch distinct categories from the database
+        const categories = await Listing.distinct("category");
+        const listingsByCategory = {};
+    
+        for (const category of categories) {
+          const listings = await Listing.find({ category }).sort({ bidStartDate: -1 }).limit(3).exec();
+          listingsByCategory[category] = listings;
+        }
+    
+        res.json(listingsByCategory);
+      } catch (error) {
+        console.error("Error fetching listings by category:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    
+    // const listings = await Listing.find({}).sort([{ "category": 1 },{ bidStartDate: -1 }]).limit(3).exec();
+    // res.json(listings);
 }
 
 async function show(req, res) {

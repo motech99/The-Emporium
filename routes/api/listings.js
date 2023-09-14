@@ -9,8 +9,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.get('/', listingsController.getAll);
 // GET /:id
 router.get('/:id', listingsController.show);
-// GET /api/listings/ (All user's listings)
-
+//GET /
+router.get('/home', listingsController.getListingByCategory);
 // POST /new
 router.post("/", listingsController.create);
 // DELETE /:id

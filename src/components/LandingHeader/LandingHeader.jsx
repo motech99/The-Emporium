@@ -16,12 +16,12 @@ const LandingHeader = React.forwardRef(({ handleClick }, ref) => {
         <div className="my-24 md:mr-96 delay-1000 fade-in">
           <Link
             to="/login"
-            className="sm:text-3xl px-16 py-4 rounded-md bg-primary mr-10 shadow-lg"
+            className="sm:text-3xl px-16 py-4 rounded-md bg-primary mr-10 shadow-lg custom-btn"
           >
             Get Started
           </Link>
-          <Link className="sm:text-3xl px-16" onClick={handleButtonClick}>
-            Learn More <span className="text-yellow-400 ">{">>"}</span>
+          <Link className="sm:text-3xl px-16 custom-btn" onClick={handleButtonClick}>
+            Learn More <span className="text-accent">{">>"}</span>
           </Link>
         </div>
       </section>

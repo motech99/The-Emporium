@@ -10,7 +10,7 @@ const LandingPurpose = React.forwardRef((props, ref) => {
         className="flex flex-row lg:max-w-max snap-start snap-always"
       >
         <img
-          src="images/carts.jpg"
+          src="images/carts.png"
           className={`w-6/12 object-cover opacity-0 ${
             aboutIsVisible ? "opacity-100 duration-1000 " : ""
           }`}
