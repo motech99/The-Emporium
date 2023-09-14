@@ -10,6 +10,7 @@ import AllListingPage from "../AllListingPage/AllListingPage";
 import AddListingPage from "../AddListingPage/AddListingPage";
 import ListingDetail from "../ListingDetail/ListingDetail";
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [listings, setListings] = useState([]);

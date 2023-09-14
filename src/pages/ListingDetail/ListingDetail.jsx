@@ -29,31 +29,30 @@ export default function ListingDetail() {
   }
   return (
     <>
-      <div className="grid grid-cols-4">
+      <div className='grid grid-cols-4'>
         {/* ITEM IMAGE */}
-        <div className="col-start-2 col-end-3">
+        <div className='col-start-2 col-end-3'>
           <img
-            className="h-full w-auto object-cover rounded-md"
+            className='h-full w-auto object-cover rounded-md'
             src={listing.image}
-            alt=""
-          ></img>
+            alt=''></img>
         </div>
 
         {/* ITEM DETAILS */}
-        <div className="col-start-3 col-end-4 w-full">
-          <h2 className="text-4xl text-left mt-20 mb-10">{listing.itemName}</h2>
-          <p className="my-4">
+        <div className='col-start-3 col-end-4 w-full'>
+          <h2 className='text-4xl text-left mt-20 mb-10'>{listing.itemName}</h2>
+          <p className='my-4'>
             <strong>Current Price:</strong>{" "}
-            <span className="m-5 text-2xl text-contrast">
+            <span className='m-5 text-2xl text-contrast'>
               ${listing.startingBid}
             </span>
           </p>
-          <p className="italic">
+          <p className='italic'>
             Auction closes at {new Date(listing.bidEndDate).toLocaleString()}
           </p>
 
           {/* BIDDINGS */}
-          <div className="">
+          <div className=''>
             {listing.bids.map((bid, index) => (
               <p key={index}>
                 Bid {bid.bid} date: {bid.date} bidder: {bid.bidder}
@@ -62,29 +61,30 @@ export default function ListingDetail() {
           </div>
 
           {/* DESCRIPTION */}
-          <div className="flex gap-10 my-10">
-            <div className="font-semibold flex-col ">
+          <div className='flex gap-10 my-10'>
+            <div className='font-semibold flex-col '>
               <p>Category</p>
               <p>Condition</p>
             </div>
-            <div className="flex-col">
+            <div className='flex-col'>
               <p>{listing.category}</p>
               <p>{listing.condition}</p>
             </div>
           </div>
-             
-              <div>
 
-              <button className='bg-[#f52d12] button-custom' type='submit'>
-                  Delete Listing
-                </button>
-              <button className='bg-[#ff9041]' type='submit'>
-                  Edit Listing
-                </button>
-              </div>
+          <div>
+            <button className='bg-[#f56d12] ' type='submit'>
+              Delete Listing
+            </button>
+            <Link to='/:id/edit'>
+          <button className='bg-[#ff9041]' type='submit'>
+        Edit Listing
+         </button>
+    </Link>
+          </div>
 
-          <div className="border-t border-gray-400 my-14">
-            <h3 className="text-xl mt-6">About this item</h3>
+          <div className='border-t border-gray-400 my-14'>
+            <h3 className='text-xl mt-6'>About this item</h3>
             <p>{listing.description}</p>
           </div>
         </div>

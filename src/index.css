@@ -53,10 +53,3 @@
     animation: fadeIn .5s ease-in-out;
     animation-fill-mode: forwards; 
 }
-
-
-.button-custom:hover {
-    transform: scale(1.1);
-    background-color: #ff7809;
-    border-color: #ff7809;
-  }
