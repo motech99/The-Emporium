@@ -17,8 +17,8 @@ export function addListing(listingData) {
   return sendRequest(BASE_URL, 'POST', listingData);
 }
 
-export function removeListing(listingData) {
-
+export function deleteListing(listingId) {
+  return sendRequest(`${BASE_URL}/${listingId}`, 'DELETE');
 }
 
 export function editListing(listingData, id) {

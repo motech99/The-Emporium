@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getById } from "../../utilities/listings-api";
+import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
 
@@ -49,6 +49,18 @@ export default function ListingDetail() {
     }
   }
 
+  const handleDeleteListing = async () => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this listing?');
+    if (confirmDelete) {
+      try {
+        await deleteListing(listingId);
+        navigate("/home");
+      } catch (err) {
+        console.error("Error deleting listing:", err);
+      }
+    }
+  };
+
   if (listing === null) {
     return <p>Loading</p>;
   }
@@ -64,8 +76,6 @@ export default function ListingDetail() {
             alt=""
           ></img>
         </div>
-
-        <btn></btn>
 
         {/* ITEM DETAILS */}
         <div className='col-start-3 col-end-4 w-full'>
@@ -91,18 +101,18 @@ export default function ListingDetail() {
               <p>{listing.condition}</p>
             </div>
           </div>
-
-        <button className='bg-[#f52d12] button-custom' type='submit'>
+          {/* DELETE & EDIT BUTTONS */}
+          <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
             Delete Listing
-        </button>
-        <button
-          className="bg-[#ff9041] button-custom"
-          type="button"
-          onClick={handleEditListing}
-        >
-          Edit Listing
-        </button>
-              </div>
+          </button>
+          <button
+            className="bg-[#ff9041] button-custom"
+            type="button"
+            onClick={handleEditListing}
+          >
+            Edit Listing
+          </button>
+        </div>
 
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
