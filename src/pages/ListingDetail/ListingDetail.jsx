@@ -72,6 +72,16 @@ export default function ListingDetail() {
               <p>{listing.condition}</p>
             </div>
           </div>
+             
+              <div>
+
+              <button className='bg-[#f52d12] button-custom' type='submit'>
+                  Delete Listing
+                </button>
+              <button className='bg-[#ff9041]' type='submit'>
+                  Edit Listing
+                </button>
+              </div>
 
           <div className="border-t border-gray-400 my-14">
             <h3 className="text-xl mt-6">About this item</h3>
