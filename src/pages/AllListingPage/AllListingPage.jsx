@@ -50,9 +50,6 @@ export default function AllListingPage() {
                   <strong>Auction closes:</strong>{" "}
                   {new Date(listing.bidEndDate).toLocaleString()}
                 </p>
-                {/* <p>
-                  <strong>Description:</strong> {listing.description}
-                </p> */}
                 <p>
                   <strong>Current Price:</strong> ${listing.startingBid}
                 </p>
