@@ -19,6 +19,8 @@ html {
 .custom-btn {
     transition: all 0.2s ease-in-out;
     display: inline-block;
+    width: auto;
+
 }
 
 .custom-btn:hover {

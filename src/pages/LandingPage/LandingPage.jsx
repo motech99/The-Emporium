@@ -34,10 +34,10 @@ export default function LandingPage() {
         />
         <section className="h-screen snap-start snap-always" ref={demoRef}>
           <img
-            src="images/test.jpg"
+            src="images/demo.png"
             alt=""
-            className={`h-screen rounded-lg opacity-0 blur-3xl ${
-              demoIsVisible ? "opacity-100 duration-1000 blur-none" : ""
+            className={`w-11/12 m-auto pt-10 shadow-2xl rounded-lg opacity-0 blur-3xl ${
+              demoIsVisible ? "opacity-100 duration-5000 blur-none" : ""
             }`}
           />
         </section>
