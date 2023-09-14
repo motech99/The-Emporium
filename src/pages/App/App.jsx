@@ -25,7 +25,9 @@ export default function App() {
       method: "post",
       body: data
     }).then(res => res.json())
-        .catch(err => console.log(err))
+        .catch(err => { 
+          console.log("is this where the error is")
+          console.log(err)}) 
   }
   
 

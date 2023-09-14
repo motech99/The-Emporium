@@ -37,7 +37,9 @@ export default function AllListingPage() {
                 className="p-4 w-fit opacity-80 shadow-md hover:scale-105 hover:opacity-100 hover:shadow-lg duration-200 custom-listing"
               >
                 <h2 className="text-xl font-semibold">{listing.itemName}</h2>
-                <img src={listing.image} />
+                <div className="flex flex-col items-center">
+                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
+                </div>
                 <p>
                   <strong>Category:</strong> {listing.category}
                 </p>
@@ -48,9 +50,9 @@ export default function AllListingPage() {
                   <strong>Auction closes:</strong>{" "}
                   {new Date(listing.bidEndDate).toLocaleString()}
                 </p>
-                <p>
+                {/* <p>
                   <strong>Description:</strong> {listing.description}
-                </p>
+                </p> */}
                 <p>
                   <strong>Current Price:</strong> ${listing.startingBid}
                 </p>

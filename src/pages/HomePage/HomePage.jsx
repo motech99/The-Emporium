@@ -88,6 +88,9 @@ export default function HomePage() {
             {latestListings.map((listing) => (
               <div key={listing._id} className="m-4 custom--border-bottom">
                 <h2 className="text-xl font-semibold mb-2.5 ">{listing.itemName}</h2>
+                <div className="flex flex-col items-center">
+                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
+                </div>
                 <p><strong>Category:</strong> {listing.category}</p>
                 <p> <strong>Condition:</strong> {listing.condition}</p>
                 <p>
@@ -123,7 +126,9 @@ export default function HomePage() {
                 >
                   <div className="flex flex-col h-full">
 
-                    <img className="justify-start h-2/3" src="" alt="" />
+                  <div className="flex flex-col items-center">
+                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
+                </div>
 
                     <div className="justify-end">
                       <h2 className="text-xl font-semibold">

@@ -47,11 +47,12 @@ export default class AddListingForm extends Component {
         image
       };
 
+      
+      const data = await this.props.uploadImage();
+      console.log(data)
+      formData.image = data.url;
       const newListing = await addListing(formData);
       this.setState({ submitted: true });
-      console.log(this.props);
-      const data = await this.props.uploadImage();
-      this.state.image = data.url;
       console.log("New listing created:", newListing);
     } catch (error) {
       console.error("Error creating listing:", error);
@@ -64,7 +65,7 @@ export default class AddListingForm extends Component {
     console.log(this.props)
 
     if (submitted) {
-      return <Navigate to="/all-listing" replace={true} />;
+      return <Navigate to="/all-listings" replace={true} />;
     }
     
     return (
@@ -131,7 +132,9 @@ export default class AddListingForm extends Component {
                   required
                 />
                 <label> Upload Image </label>
-                <input type="file" onChange={(e) => this.props.setImage(e.target.files[0])} />
+                <input type="file" onChange={(e) => this.props.setImage(e.target.files[0])} 
+                required
+                />
                 <button className='bg-[#ff9041]' type='submit'>
                   CREATE LISTING
                 </button>

@@ -51,6 +51,7 @@ export default function ListingDetail() {
       <p>
         <strong>Current Price:</strong> ${listing.startingBid}
       </p>
+      <img src={listing.image} />
     </div>
   );
 }
