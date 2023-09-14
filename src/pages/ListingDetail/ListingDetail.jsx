@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
+  const [bidAmount, setBidAmount] = useState("");
   const navigate = useNavigate();
 
   let { listingId } = useParams();
@@ -91,15 +92,6 @@ export default function ListingDetail() {
             Auction closes at {new Date(listing.bidEndDate).toLocaleString()}
           </p>
 
-          {/* BIDDINGS */}
-          <div className="">
-            {listing.bids.map((bid, index) => (
-              <p key={index}>
-                Bid {bid.bid} date: {bid.date} bidder: {bid.bidder}
-              </p>
-            ))}
-          </div>
-
           {/* DESCRIPTION */}
           <div className="flex gap-10 my-10">
             <div className="font-semibold flex-col ">
@@ -128,6 +120,31 @@ export default function ListingDetail() {
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
+        
+          {/* BID FORM */}
+          <form onSubmit={handleSubmitBid}>
+            <label htmlFor="bidAmount">Bid Amount:</label>
+            <input
+              type="number"
+              id="bidAmount"
+              name="bidAmount"
+              value={bidAmount}
+              onChange={(e) => setBidAmount(e.target.value)}
+              required
+            />
+            <button className="bg-[#ff9041] button-custom" type="submit">
+              Place Bid
+            </button>
+          </form>
+          {/* BIDS DISPLAY */}
+          <div className=''>
+            {listing.bids.map((bid, index) => (
+              <p key={index}>
+                Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
+              </p>
+            ))}
+          </div>
+
         </div>
       {/* <Footer /> */}
     </>
