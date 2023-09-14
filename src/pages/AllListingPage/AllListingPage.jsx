@@ -28,7 +28,8 @@ export default function AllListingPage() {
       <div className="grid grid-cols-3 gap-6 mt-4 ">
         {/* Map through the listings and display each one */}
         {listings.map((listing) => (
-          <div key={listing._id} className="p-4 w-fit custom-listing">
+          <div key={listing._id} className="p-4 
+           custom-listing">
             <h2 className="text-xl font-semibold">{listing.itemName}</h2>
             <p><strong>Category:</strong> {listing.category}</p>
             <p><strong>Condition:</strong> {listing.condition}</p>
