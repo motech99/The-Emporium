@@ -36,6 +36,11 @@ export default function NavBar({ user, setUser }) {
                     Add Listing
                   </Link>
                 </li>
+                <li>
+                  <Link className="custom--hover custom--font" to="/profile/:userId">
+                    Profile Page
+                  </Link>
+                </li>
               </ul>
             </div>
             <ul className="hidden md:flex px-4 font-heading items-center space-x-12">

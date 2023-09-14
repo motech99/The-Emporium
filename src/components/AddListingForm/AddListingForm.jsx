@@ -65,7 +65,7 @@ export default class AddListingForm extends Component {
     console.log(this.props)
 
     if (submitted) {
-      return <Navigate to="/all-listings" replace={true} />;
+      return <Navigate to="`/listing/${this.listing.id}`" replace={true} />;
     }
     
     return (

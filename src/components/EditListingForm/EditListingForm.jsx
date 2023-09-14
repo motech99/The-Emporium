@@ -41,7 +41,8 @@ export default function EditListingForm({ onEdit }) {
     evt.preventDefault();
     try {
       const updatedListing = await editListing(listing._id, formData);
-      onEdit(updatedListing);
+      // setSubmitted(true);
+      // onEdit(updatedListing);
     } catch (error) {
       console.error("Error editing listing:", error);
     }

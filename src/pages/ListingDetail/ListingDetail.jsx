@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getById } from "../../utilities/listings-api";
+import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
+import './ListingDetail.css'
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
+  const [bidAmount, setBidAmount] = useState("");
   const navigate = useNavigate();
 
   let { listingId } = useParams();
@@ -35,18 +37,33 @@ export default function ListingDetail() {
   const handleSubmitBid = async (evt) => {
     evt.preventDefault();
     const bidData = {
-      bidAmount: bidAmount,
+      // bidAmount: bidAmount,
     };
-
+    console.log(bidData);
     try {
+      console.log(bidData);
       // Make an AJAX request to add the bid
-      const updatedListing = await addBid(listingId, bidData);
-      // Update the listing in the state
-      setListing(updatedListing);
-      // Clear the bid amount input after submission
-      setBidAmount("");
+      // const updatedListing = await addBid(listingId, bidData);
+      // // Update the listing in the state
+      // setListing(updatedListing);
+      // // Clear the bid amount input after submission
+      // setBidAmount("");
     } catch (err) {
       console.error("Error adding bid:", err);
+    }
+  };
+
+  const handleDeleteListing = async () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
+    if (confirmDelete) {
+      try {
+        await deleteListing(listingId);
+        navigate("/home");
+      } catch (err) {
+        console.error("Error deleting listing:", err);
+      }
     }
   };
 
@@ -79,15 +96,6 @@ export default function ListingDetail() {
             Auction closes at {new Date(listing.bidEndDate).toLocaleString()}
           </p>
 
-          {/* BIDDINGS */}
-          <div className="">
-            {listing.bids.map((bid, index) => (
-              <p key={index}>
-                Bid {bid.bid} date: {bid.date} bidder: {bid.bidder}
-              </p>
-            ))}
-          </div>
-
           {/* DESCRIPTION */}
           <div className="flex gap-10 my-10">
             <div className="font-semibold flex-col ">
@@ -99,22 +107,59 @@ export default function ListingDetail() {
               <p>{listing.condition}</p>
             </div>
           </div>
+          {/* DELETE & EDIT BUTTONS */}
+          {/* {user._id === listing.seller._id ? (   */}
+          <div>
+            <button
+              className="bg-[#f52d12] button-custom"
+              type="button"
+              onClick={handleDeleteListing}
+            >
+              Delete Listing
+            </button>
+            <button
+              className="bg-[#ff9041] button-custom"
+              type="button"
+              onClick={handleEditListing}
+            >
+              Edit Listing
+            </button>
+          </div>
+          {/* ) : null} */}
 
-          <button className="bg-[#f52d12] button-custom" type="submit">
-            Delete Listing
+
+        {/* BID FORM */}
+        <form className="bidForm" onSubmit={handleSubmitBid}>
+          <label htmlFor="bidAmount">Bid Amount:</label>
+          <input
+          className="w-32 rounded-md ml-4"
+            type="number"
+            id="bidAmount"
+            name="bidAmount"
+            value={bidAmount}
+            onChange={(e) => setBidAmount(e.target.value)}
+            required
+          />
+          <button className="bg-[#ff9041] button-custom" type="submit">
+            Place Bid
           </button>
-          <button
-            className="bg-[#ff9041] button-custom"
-            type="button"
-            onClick={handleEditListing}
-          >
-            Edit Listing
-          </button>
+        </form>
+        {/* BIDS DISPLAY */}
+        <div className="">
+          {listing.bids.map((bid, index) => (
+            <p key={index}>
+              Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
+            </p>
+          ))}
+        </div>
+
+
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
         </div>
+
       </div>
       {/* <Footer /> */}
     </>
