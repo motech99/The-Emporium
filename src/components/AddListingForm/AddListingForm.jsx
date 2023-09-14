@@ -132,8 +132,7 @@ export default class AddListingForm extends Component {
                   required
                 />
                 <label> Upload Image </label>
-                <input type="file" onChange={(e) => this.props.setImage(e.target.files[0])} 
-                required
+                <input type="file" onChange={(e) => this.props.setImage(e.target.files[0])} required
                 />
                 <button className='bg-[#ff9041]' type='submit'>
                   CREATE LISTING

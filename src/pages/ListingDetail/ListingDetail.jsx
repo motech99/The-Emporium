@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getById } from "../../utilities/listings-api";
+import { addBid } from "../../utilities/bids-api";
+import Footer from "../../components/Footer/Footer";
 
 export default function ListingDetail() {
   const [listing, setListing] = useState(null);
@@ -13,8 +15,8 @@ export default function ListingDetail() {
     try {
       const data = await getById(listingId);
       setListing(data);
-      console.log(listingId)
-      console.log(data)
+      console.log(listingId);
+      console.log(data);
     } catch (error) {
       console.error("Error fetching listing:", error);
     }
@@ -25,13 +27,29 @@ export default function ListingDetail() {
     fetchListing();
   }, []);
 
-
   const handleEditListing = () => {
     // Use the navigate function to redirect to the edit page
     navigate(`/edit-listing/${listingId}`);
   };
 
-  
+  const handleSubmitBid = async (evt) => {
+    evt.preventDefault();
+    const bidData = {
+      bidAmount: bidAmount,
+    };
+
+    try {
+      // Make an AJAX request to add the bid
+      const updatedListing = await addBid(listingId, bidData);
+      // Update the listing in the state
+      setListing(updatedListing);
+      // Clear the bid amount input after submission
+      setBidAmount("");
+    } catch (err) {
+      console.error("Error adding bid:", err);
+    }
+  };
+
   if (listing === null) {
     return <p>Loading</p>;
   }
@@ -85,7 +103,6 @@ export default function ListingDetail() {
           <button className="bg-[#f52d12] button-custom" type="submit">
             Delete Listing
           </button>
-
           <button
             className="bg-[#ff9041] button-custom"
             type="button"
@@ -93,7 +110,6 @@ export default function ListingDetail() {
           >
             Edit Listing
           </button>
-
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>

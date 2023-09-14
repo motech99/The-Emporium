@@ -26,7 +26,7 @@ export default function AllListingPage() {
     <>
       <div className="flex flex-col items-center m-8">
         <h1 className="text-5xl font-bold custom--font fade-in-faster">
-          All Listings Page
+          All Listings
         </h1>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 fade-in">
           {/* Map through the listings and display each one */}
@@ -38,7 +38,10 @@ export default function AllListingPage() {
               >
                 <h2 className="text-xl font-semibold">{listing.itemName}</h2>
                 <div className="flex flex-col items-center">
-                <img className="max-h-80 max-w-xs mb-10 custom--border rounded" src={listing.image} />
+                  <img
+                    className="max-h-80 max-w-xs mb-10 custom--border rounded"
+                    src={listing.image}
+                  />
                 </div>
                 <p>
                   <strong>Category:</strong> {listing.category}
@@ -50,9 +53,6 @@ export default function AllListingPage() {
                   <strong>Auction closes:</strong>{" "}
                   {new Date(listing.bidEndDate).toLocaleString()}
                 </p>
-                {/* <p>
-                  <strong>Description:</strong> {listing.description}
-                </p> */}
                 <p>
                   <strong>Current Price:</strong> ${listing.startingBid}
                 </p>

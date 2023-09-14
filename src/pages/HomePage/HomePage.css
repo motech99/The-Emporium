@@ -62,3 +62,14 @@
     height: 27rem;
     width: auto;
   }
+
+  .custom-listing-home {
+    padding: 10px 32px;
+    margin: 10px;
+}
+
+.custom-listing-home h2 {
+  font-size: 20px;
+  color: #f85b00;
+  margin-bottom: 8px;
+}
