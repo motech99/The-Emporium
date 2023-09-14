@@ -90,7 +90,7 @@ async function edit(req, res) {
         if (!listing) {
           return res.status(404).json({ error: 'Listing not found' });
         }
-    
+        res.json(listing);
         // Render the edit view and pass the listing data
         // res.render('editListing', { title: 'Edit Listing', listing });
       } catch (error) {
@@ -104,7 +104,7 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-        const listing = await Listing.findById(req.params.id);
+        const listing = await Listing.findOneAndUpdate(req.params.id);
     
         if (!listing) {
           return res.status(404).json({ error: 'Listing not found' });

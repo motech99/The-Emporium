@@ -9,8 +9,8 @@ export function getListingByCategory() {
   return sendRequest(`BASE_URL`)
 }
 
-export function getById(id) {
-  return sendRequest(`${BASE_URL}/${id}`);
+export function getById(_id) {
+  return sendRequest(`${BASE_URL}/${_id}`);
 }
 
 export function addListing(listingData) {
@@ -21,6 +21,6 @@ export function removeListing(listingData) {
 
 }
 
-export function updateListing(listingData, id) {
+export function editListing(listingData, id) {
   return sendRequest(`BASE_URL/${id}`, 'PUT', listingData);
 }
