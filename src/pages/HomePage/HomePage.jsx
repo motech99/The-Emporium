@@ -87,12 +87,15 @@ export default function HomePage() {
             </h3>
             {latestListings.map((listing) => (
               <div key={listing._id} className="m-4 custom--border-bottom">
-                <h2 className="text-xl font-semibold">{listing.itemName}</h2>
-                <p>Category: {listing.category}</p>
-                <p>Condition: {listing.condition}</p>
-                <p>Auction closes: {listing.bidEndDate}</p>
-                <p>Description: {listing.description}</p>
-                <p>Current Price: ${listing.startingBid}</p>
+                <h2 className="text-xl font-semibold mb-2.5 ">{listing.itemName}</h2>
+                <p><strong>Category:</strong> {listing.category}</p>
+                <p> <strong>Condition:</strong> {listing.condition}</p>
+                <p>
+                  <strong>Auction closes:</strong>{" "}
+                  {new Date(listing.bidEndDate).toLocaleString()}
+                </p>
+                <p> <strong>Description:</strong> {listing.description}</p>
+                <p><strong>Current Price:</strong> ${listing.startingBid}</p>
               </div>
             ))}
           </div>
@@ -126,6 +129,7 @@ export default function HomePage() {
                       <h2 className="text-xl font-semibold">
                         {listing.itemName}
                       </h2>
+                      <br />
                       <p className="text-center">
                         Currently{" "}
                         <span className="font-semibold">
@@ -133,11 +137,12 @@ export default function HomePage() {
                         </span>
                       </p>
                       <p className="text-center">
-                        Auction closes:{" "}
-                        <span className="font-semibold">
-                          {listing.bidEndDate}
-                        </span>
+                        Auction closes:{" "} 
                       </p>
+                        <span className="font-semibold">
+                        {new Date(listing.bidEndDate).toLocaleString()}
+                        </span>
+              
                       {/* <p>Condition: {listing.condition}</p> */}
                       {/* <p>Category: {listing.category}</p> */}
                       {/* <p>Description: {listing.description}</p> */}

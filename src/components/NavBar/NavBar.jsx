@@ -9,19 +9,6 @@ export default function NavBar({ user, setUser }) {
   }
   return (
     <>
-      {/* <nav>
-        <Link to='/orders'>Order History</Link>
-        <Link to='/orders/new'>New Order</Link>
-        <br />
-        <span
-          className='text-xl'>
-          Welcome, {user.name}
-        </span>
-        <br />
-        <Link to='' onClick={handleLogOut}>
-          Log Out
-        </Link>
-      </nav> */}
       <div className="flex flex-wrap overflow-x-hidden">
         <section className="relative mx-auto">
           <nav className="flex justify-between overlay-custom text-white w-screen">
@@ -35,17 +22,17 @@ export default function NavBar({ user, setUser }) {
               </Link>
               <ul className="hidden md:flex  px-4 mx-auto  font-heading space-x-12 text-lg font-medium">
                 <li>
-                  <Link className="custom--hover custom--font text-background" to="/home">
+                  <Link className="custom--hover custom--font" to="/home">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link className="custom--hover custom--font text-background" to="/all-listing">
+                  <Link className="custom--hover custom--font" to="/all-listing">
                     All Listings
                   </Link>
                 </li>
                 <li>
-                  <Link className="custom--hover custom--font text-background" to="/add-listing">
+                  <Link className="custom--hover custom--font" to="/add-listing">
                     Add Listing
                   </Link>
                 </li>
@@ -54,7 +41,7 @@ export default function NavBar({ user, setUser }) {
             <ul className="hidden md:flex px-4 font-heading items-center space-x-12">
               <li className="w-20">
                 <Link
-                  className="custom--hover custom--font text-background font-medium"
+                  className="custom--hover custom--font font-medium"
                   to=""
                   onClick={handleLogOut}
                 >

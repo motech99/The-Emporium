@@ -37,6 +37,7 @@ export default function AllListingPage() {
                 className="p-4 w-fit opacity-80 shadow-md hover:scale-105 hover:opacity-100 hover:shadow-lg duration-200 custom-listing"
               >
                 <h2 className="text-xl font-semibold">{listing.itemName}</h2>
+                <img src={listing.image} />
                 <p>
                   <strong>Category:</strong> {listing.category}
                 </p>

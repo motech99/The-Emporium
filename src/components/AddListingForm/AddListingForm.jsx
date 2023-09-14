@@ -21,7 +21,8 @@ export default class AddListingForm extends Component {
       [evt.target.name]: evt.target.value,
       error: "",
     });
-  };
+  }
+
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -33,6 +34,7 @@ export default class AddListingForm extends Component {
         category,
         startingBid,
         bidEndDate,
+        image
       } = this.state;
 
       const formData = {
@@ -42,11 +44,14 @@ export default class AddListingForm extends Component {
         category,
         startingBid,
         bidEndDate,
+        image
       };
 
       const newListing = await addListing(formData);
       this.setState({ submitted: true });
-
+      console.log(this.props);
+      const data = await this.props.uploadImage();
+      this.state.image = data.url;
       console.log("New listing created:", newListing);
     } catch (error) {
       console.error("Error creating listing:", error);
@@ -56,6 +61,7 @@ export default class AddListingForm extends Component {
 
   render() {
     const { submitted } = this.state;
+    console.log(this.props)
 
     if (submitted) {
       return <Navigate to="/all-listing" replace={true} />;
@@ -64,8 +70,8 @@ export default class AddListingForm extends Component {
     return (
       <>
         <div>
-          <div className='container'>
-            <div className='form-container sign-in-container m-1'>
+          <div className='container-custom fade-in'>
+            <div className='add-list-container m-1'>
               <form autoComplete='off' onSubmit={this.handleSubmit}>
                 <h1 className='h1-header'>Add New Listing</h1>
                 <label>Item Name</label>
@@ -124,7 +130,8 @@ export default class AddListingForm extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <label>Image URL</label>
+                <label> Upload Image </label>
+                <input type="file" onChange={(e) => this.props.setImage(e.target.files[0])} />
                 <button className='bg-[#ff9041]' type='submit'>
                   CREATE LISTING
                 </button>
