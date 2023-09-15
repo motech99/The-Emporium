@@ -83,7 +83,7 @@ export default function ListingDetail(props) {
 
   return (
     <>
-      <div className="grid grid-cols-4 grid-auto-rows-auto gap-5">
+      <div className="grid grid-cols-4 grid-auto-rows-auto gap-5 fade-in">
         {/* ITEM IMAGE */}
         <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
@@ -132,8 +132,9 @@ export default function ListingDetail(props) {
               </button>
             </>
           ) : null}
-          <div className="border-t border-contrast my-14">
+          <div className="border-t-4 border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
+            <br />
             <p>{listing.description}</p>
           </div>
         </div>

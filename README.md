@@ -13,7 +13,7 @@
 ![3](https://i.imgur.com/8Ih1Ajn.png)
 ![4](https://i.imgur.com/lQIsfx9.png)
 ![5](https://i.imgur.com/6VLQ84Z.png)
-![6](https://i.imgur.com/UwIAua2.png)
+![6](https://i.imgur.com/ne0x20a.png)
 
 
 # Technologies Used
