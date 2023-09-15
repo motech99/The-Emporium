@@ -26,5 +26,6 @@ export function deleteListing(listingId) {
 }
 
 export function editListing(id, listingData) {
-  return sendRequest(`BASE_URL/${id}`, 'PUT', listingData);
+  console.log('listingData - ', listingData)
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT', listingData);
 }

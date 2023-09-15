@@ -4,6 +4,7 @@ import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
 import  * as bidsAPI from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
+import "./ListingDetail.css";
 
 export default function ListingDetail(props) {
   const [listing, setListing] = useState(null);
@@ -63,7 +64,9 @@ export default function ListingDetail(props) {
   // }
 
   const handleDeleteListing = async () => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this listing?');
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
     if (confirmDelete) {
       try {
         await deleteListing(listingId);
@@ -134,11 +137,13 @@ export default function ListingDetail(props) {
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
-        
+          {/* ) : null} */}
+
           {/* BID FORM */}
           {/* <form onSubmit={handleSubmitBid}>
             <label htmlFor="bidAmount">Bid Amount:</label>
             <input
+              className="w-32 rounded-md ml-4"
               type="number"
               id="bidAmount"
               name="bidAmount"
@@ -158,7 +163,7 @@ export default function ListingDetail(props) {
               </p>
             ))}
           </div> */}
-        </div>
+      </div>
       {/* <Footer /> */}
     </>
   );

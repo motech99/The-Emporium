@@ -101,9 +101,10 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
+  console.log('req.params.id - ', req.params.id)
     try {
-        const listing = await Listing.findOneAndUpdate(req.params.id);
-    
+        const listing = await Listing.findOneAndUpdate({_id: req.params.id}, {$set: req.body}, {returnDocument: "after"});
+        console.log(listing)
         if (!listing) {
           return res.status(404).json({ error: 'Listing not found' });
         }
@@ -112,8 +113,10 @@ async function update(req, res) {
         if (!listing.seller.equals(req.user._id)) {
           return res.status(403).json({ error: 'Permission denied' });
         }
-    } catch {
 
+        res.json(listing)
+    } catch (err) {
+      console.log(err)
     }
     
     

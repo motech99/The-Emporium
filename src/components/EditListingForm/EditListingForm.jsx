@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { editListing } from "../../utilities/listings-api";
+import { editListing, getById } from "../../utilities/listings-api";
 import "../AddListingForm/AddListingForm.css";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditListingForm({ onEdit }) {
   const [listing, setListing] = useState(null);
   const { listingId } = useParams();
+  console.log("listingId - ", listingId);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const data = await editListing(listingId);
+        const data = await getById(listingId);
         setListing(data);
+        setFormData({
+          itemName: data?.itemName || "",
+          description: data?.description || "",
+          condition: data?.condition || "",
+          category: data?.category || "",
+          bidEndDate: data?.bidEndDate || "",
+          // image: data?.image || "",
+        });
       } catch (error) {
         console.error("Error fetching listing:", error);
       }
     };
-
     fetchListing();
   }, [listingId]);
 
@@ -26,7 +35,7 @@ export default function EditListingForm({ onEdit }) {
     condition: "",
     category: "",
     bidEndDate: "",
-    image: "",
+    // image: "",
   });
 
   const handleChange = (evt) => {
@@ -39,10 +48,15 @@ export default function EditListingForm({ onEdit }) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
+    console.log(formData);
+    console.log("listing is ", listing);
+    // formData.image = ""
     try {
       const updatedListing = await editListing(listing._id, formData);
+      console.log(updatedListing);
       // setSubmitted(true);
       // onEdit(updatedListing);
+      navigate(`/listings/${listing._id}`);
     } catch (error) {
       console.error("Error editing listing:", error);
     }
@@ -112,14 +126,14 @@ export default function EditListingForm({ onEdit }) {
               onChange={handleChange}
               required
             />
-            <label> Upload Image </label>
+            {/* <label> Upload Image </label>
             <input
               type="file"
               onChange={(e) =>
                 setFormData({ ...formData, image: e.target.files[0] })
               }
               required
-            />
+            /> */}
             <button className="bg-[#ff9041]" type="submit">
               EDIT LISTING
             </button>
