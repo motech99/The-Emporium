@@ -97,7 +97,7 @@ export default function ListingDetail(props) {
         <div className="col-start-3 col-end-4 w-full">
           <h2 className="text-4xl text-left mt-20 mb-10">{listing.itemName}</h2>
           <p className="my-4">
-            <strong>Current Price:</strong>{" "}
+            <strong>Starting Price:</strong>{" "}
             <span className="m-5 text-2xl text-contrast">
               ${listing.startingBid}
             </span>

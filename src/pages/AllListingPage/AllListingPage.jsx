@@ -54,7 +54,7 @@ export default function AllListingPage() {
                   {new Date(listing.bidEndDate).toLocaleString()}
                 </p>
                 <p>
-                  <strong>Current Price:</strong> ${listing.startingBid}
+                  <strong>Starting Price:</strong> ${listing.startingBid}
                 </p>
               </div>
             </Link>
