@@ -5,7 +5,7 @@ import { addBid } from "../../utilities/bids-api";
 import  * as bidsAPI from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
 
-export default function ListingDetail() {
+export default function ListingDetail(props) {
   const [listing, setListing] = useState(null);
   const [bidAmount, setBidAmount] = useState("");
   const navigate = useNavigate();
@@ -17,17 +17,15 @@ export default function ListingDetail() {
     try {
       const data = await getById(listingId);
       setListing(data);
-      console.log(listingId);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching listing:", error);
     }
   };
 
-  const createBid = async (listingId, bidData) => {
-    const newBid = await bidsAPI.addBid(listingId, bidData);
+  // const createBid = async (listingId, bidData) => {
+  //   const newBid = await bidsAPI.addBid(listingId, bidData);
 
-  };
+  // };
 
   // Fetch the listing when the component mounts
   useEffect(() => {
@@ -39,30 +37,30 @@ export default function ListingDetail() {
     navigate(`/edit-listing/${listingId}`);
   };
 
-  const handleSubmitBid = async (evt) => {
-    evt.preventDefault();
-    const bidData = {
-      bidAmount: bidAmount,
-    };
-    console.log(bidData);
-    try {
-      console.log(bidData);
-      listing.bids.push(bidData);
-      console.log(listing);
-      // Make an AJAX request to add the bid
-      const updatedListing = await addBid(listingId, bidData).then((data) => {
-        console.log(data);
-      });
-      console.log(updatedListing);
-      // Update the listing in the state
-      setListing(updatedListing);
-      console.log(listing);
-      // Clear the bid amount input after submission
-      setBidAmount("");
-    } catch (err) {
-      console.error("Error adding bid:", err);
-    }
-  }
+  // const handleSubmitBid = async (evt) => {
+  //   evt.preventDefault();
+  //   const bidData = {
+  //     bidAmount: bidAmount,
+  //   };
+  //   console.log(bidData);
+  //   try {
+  //     console.log(bidData);
+  //     listing.bids.push(bidData);
+  //     console.log(listing);
+  //     // Make an AJAX request to add the bid
+  //     const updatedListing = await addBid(listingId, bidData).then((data) => {
+  //       console.log(data);
+  //     });
+  //     console.log(updatedListing);
+  //     // Update the listing in the state
+  //     setListing(updatedListing);
+  //     console.log(listing);
+  //     // Clear the bid amount input after submission
+  //     setBidAmount("");
+  //   } catch (err) {
+  //     console.error("Error adding bid:", err);
+  //   }
+  // }
 
   const handleDeleteListing = async () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this listing?');
@@ -117,7 +115,7 @@ export default function ListingDetail() {
             </div>
           </div>
           {/* DELETE & EDIT BUTTONS */}
-          {/* {user._id === listing.seller._id ? (   */}
+          {props.user._id === listing.seller ? (  
             <>
               <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
                 Delete Listing
@@ -130,7 +128,7 @@ export default function ListingDetail() {
                 Edit Listing
               </button>
             </>
-            {/* ) : null} */}
+          ) : null}
         </div>
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>

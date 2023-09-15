@@ -20,8 +20,6 @@ export default function ProfilePage({user}) {
     fetchListings();
   }, []);
 
-  console.log(user);  
-  console.log(listings);
   const filterListingsForUser = (userListings) => {
     return listings.filter((listing) => listing.seller === user._id);
   };
