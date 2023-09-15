@@ -17,34 +17,7 @@ async function getAll(req, res) {
   res.json(listings);
 }
 
-async function getListingByCategory(req, res) {
-    try {
-        // Fetch distinct categories from the database
-        const categories = await Listing.distinct("category");
-        const listingsByCategory = {};
-    
-        for (const category of categories) {
-          const listings = await Listing.find({ category }).sort({ bidStartDate: -1 }).limit(3).exec();
-          listingsByCategory[category] = listings;
-        }
-    
-        res.json(listingsByCategory);
-      } catch (error) {
-        console.error("Error fetching listings by category:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-      }
-}
-
 async function show(req, res) {
-  const listing = await Listing.findById(req.params.id);
-  res.json(listing);
-}
-
-async function getUserListings(req, res) {
-  console.log("asdasdasdasdasd");
-  // const listings = await Listing.find({
-  //     user: req.seller._id
-  // }).sort({ bidStartDate: -1 }).exec();
   const listing = await Listing.findById(req.params.id);
   res.json(listing);
 }
@@ -128,4 +101,31 @@ async function update(req, res) {
     // reviewSubdoc.rating = req.body.rating;
     // await listing.save();
     // // res.redirect(`/boardgames/${boardgame._id}`);
+}
+
+async function getListingByCategory(req, res) {
+  try {
+      // Fetch distinct categories from the database
+      const categories = await Listing.distinct("category");
+      const listingsByCategory = {};
+  
+      for (const category of categories) {
+        const listings = await Listing.find({ category }).sort({ bidStartDate: -1 }).limit(3).exec();
+        listingsByCategory[category] = listings;
+      }
+  
+      res.json(listingsByCategory);
+    } catch (error) {
+      console.error("Error fetching listings by category:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+}
+
+async function getUserListings(req, res) {
+  console.log("asdasdasdasdasd");
+  // const listings = await Listing.find({
+  //     user: req.seller._id
+  // }).sort({ bidStartDate: -1 }).exec();
+  const listing = await Listing.findById(req.params.id);
+  res.json(listing);
 }

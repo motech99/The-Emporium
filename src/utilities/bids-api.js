@@ -1,5 +1,5 @@
 import sendRequest from "./send-request";
-const BASE_URL = '/api/listings';
+const BASE_URL = '/api/bids';
 
 export function addBid(listingId, bidData) {
     console.log(listingId, bidData);

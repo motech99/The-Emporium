@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
-import  * as bidsAPI from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
 import "./ListingDetail.css";
 
 export default function ListingDetail(props) {
   const [listing, setListing] = useState(null);
-  const [bidAmount, setBidAmount] = useState("");
   const navigate = useNavigate();
 
   let { listingId } = useParams();
@@ -23,11 +21,6 @@ export default function ListingDetail(props) {
     }
   };
 
-  // const createBid = async (listingId, bidData) => {
-  //   const newBid = await bidsAPI.addBid(listingId, bidData);
-
-  // };
-
   // Fetch the listing when the component mounts
   useEffect(() => {
     fetchListing();
@@ -37,31 +30,6 @@ export default function ListingDetail(props) {
     // Use the navigate function to redirect to the edit page
     navigate(`/edit-listing/${listingId}`);
   };
-
-  // const handleSubmitBid = async (evt) => {
-  //   evt.preventDefault();
-  //   const bidData = {
-  //     bidAmount: bidAmount,
-  //   };
-  //   console.log(bidData);
-  //   try {
-  //     console.log(bidData);
-  //     listing.bids.push(bidData);
-  //     console.log(listing);
-  //     // Make an AJAX request to add the bid
-  //     const updatedListing = await addBid(listingId, bidData).then((data) => {
-  //       console.log(data);
-  //     });
-  //     console.log(updatedListing);
-  //     // Update the listing in the state
-  //     setListing(updatedListing);
-  //     console.log(listing);
-  //     // Clear the bid amount input after submission
-  //     setBidAmount("");
-  //   } catch (err) {
-  //     console.error("Error adding bid:", err);
-  //   }
-  // }
 
   const handleDeleteListing = async () => {
     const confirmDelete = window.confirm(
@@ -76,6 +44,38 @@ export default function ListingDetail(props) {
       }
     }
   };
+
+  const handleSubmitBid = async (evt) => {
+    evt.preventDefault();
+
+    try {
+      const bidAmount = parseFloat(evt.target.bidAmount.value);
+      if (isNaN(bidAmount)) {
+        console.error("Invalid bid amount");
+        return;
+      }
+
+      const bidData = {
+        bidAmount: bidAmount,
+        bidder: props.user.name,
+        user: props.user._id,
+        date: new Date().toISOString(),
+      };
+      
+      // Make an AJAX request to add the bid
+      const updatedListing = await addBid(listingId, bidData);
+
+      // Update the listing in the state with the new bid
+      setListing(updatedListing);
+
+      // Clear the bid amount input after submission
+      evt.target.reset(); // Reset the form to clear the input
+    } catch (err) {
+      console.error("Error adding bid:", err);
+    }
+  };
+
+
 
   if (listing === null) {
     return <p>Loading</p>;
@@ -137,32 +137,34 @@ export default function ListingDetail(props) {
             <p>{listing.description}</p>
           </div>
         </div>
-          {/* ) : null} */}
 
-          {/* BID FORM */}
-          {/* <form onSubmit={handleSubmitBid}>
-            <label htmlFor="bidAmount">Bid Amount:</label>
-            <input
-              className="w-32 rounded-md ml-4"
-              type="number"
-              id="bidAmount"
-              name="bidAmount"
-              value={bidAmount}
-              onChange={(e) => setBidAmount(e.target.value)}
-              required
-            />
-            <button className="bg-[#ff9041] button-custom" type="submit">
-              Place Bid
-            </button>
-          </form> */}
-          {/* BIDS DISPLAY */}
-          {/* <div className=''>
-            {listing.bids.map((bid, index) => (
-              <p key={index}>
-                Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
-              </p>
-            ))}
-          </div> */}
+         {/* BID FORM */}
+         <form onSubmit={handleSubmitBid}>
+          <label htmlFor="bidAmount">Bid Amount:</label>
+          <input
+            className="w-32 rounded-md ml-4"
+            type="number"
+            step="0.01"
+            id="bidAmount"
+            name="bidAmount"
+            required
+          />
+          <button className="bg-[#ff9041] button-custom" type="submit">
+            Place Bid
+          </button>
+        </form>
+
+        {/* BIDS DISPLAY */}
+        <div className="">
+          <h3 className="text-xl mt-6">Bids</h3>
+          {listing.bids.map((bid, index) => (
+            <div key={index} className="border p-2 mt-2">
+              <p>Bid Amount: ${bid.bidAmount}</p>
+              <p>Date: {new Date(bid.date).toLocaleString()}</p>
+              <p>Bidder ID: {bid.bidder}</p>
+            </div>
+          ))}
+        </div>
       </div>
       {/* <Footer /> */}
     </>

@@ -28,6 +28,7 @@ const port = process.env.PORT || 3001;
 app.use('/api/users', require('./routes/api/users'));
 const ensureLoggedIn = require("./config/ensureLoggedIn");
 app.use("/api/listings", ensureLoggedIn, require("./routes/api/listings"));
+app.use("/api/bids", ensureLoggedIn, require("./routes/api/bids"));
 
 
 

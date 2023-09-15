@@ -1,4 +1,4 @@
-const Listing = require("../../models/Listing");
+const Listing = require("../../models/listing");
 
 async function create(req, res) {
     console.log("test");
