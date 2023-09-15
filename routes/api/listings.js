@@ -11,8 +11,8 @@ router.get('/', listingsController.getAll);
 router.get('/:id', listingsController.show);
 //GET / (SHOW BY CATEGORY)
 router.get('/home', listingsController.getListingByCategory);
-// // GET /user._id (SHOW USER'S LISTINGS)
-// router.get('/user._id', listingsController.getUserListings);
+// GET /user._id (SHOW USER'S LISTINGS)
+router.get('/user._id', listingsController.getUserListings);
 // POST /new
 router.post("/", listingsController.create);
 // DELETE /:id

@@ -13,7 +13,7 @@ const bidSchema = new Schema({
     },
     bidAmount: {
         type: Number,
-        required: true
+        // required: true
     },
     date: {
         type: Date

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getById, deleteListing } from "../../utilities/listings-api";
 import { addBid } from "../../utilities/bids-api";
+import  * as bidsAPI from "../../utilities/bids-api";
 import Footer from "../../components/Footer/Footer";
 
 export default function ListingDetail() {
@@ -23,6 +24,11 @@ export default function ListingDetail() {
     }
   };
 
+  const createBid = async (listingId, bidData) => {
+    const newBid = await bidsAPI.addBid(listingId, bidData);
+
+  };
+
   // Fetch the listing when the component mounts
   useEffect(() => {
     fetchListing();
@@ -41,10 +47,16 @@ export default function ListingDetail() {
     console.log(bidData);
     try {
       console.log(bidData);
+      listing.bids.push(bidData);
+      console.log(listing);
       // Make an AJAX request to add the bid
-      const updatedListing = await addBid(listingId, bidData);
+      const updatedListing = await addBid(listingId, bidData).then((data) => {
+        console.log(data);
+      });
+      console.log(updatedListing);
       // Update the listing in the state
       setListing(updatedListing);
+      console.log(listing);
       // Clear the bid amount input after submission
       setBidAmount("");
     } catch (err) {
@@ -126,7 +138,7 @@ export default function ListingDetail() {
           </div>
         
           {/* BID FORM */}
-          <form onSubmit={handleSubmitBid}>
+          {/* <form onSubmit={handleSubmitBid}>
             <label htmlFor="bidAmount">Bid Amount:</label>
             <input
               type="number"
@@ -139,15 +151,15 @@ export default function ListingDetail() {
             <button className="bg-[#ff9041] button-custom" type="submit">
               Place Bid
             </button>
-          </form>
+          </form> */}
           {/* BIDS DISPLAY */}
-          <div className=''>
+          {/* <div className=''>
             {listing.bids.map((bid, index) => (
               <p key={index}>
                 Bid: {bid.bidAmount} Date: {bid.date} Bidder: {bid.bidder}
               </p>
             ))}
-          </div>
+          </div> */}
         </div>
       {/* <Footer /> */}
     </>

@@ -1,9 +1,11 @@
 const Listing = require("../../models/Listing");
 
 async function create(req, res) {
+    console.log("test");
     const listing = await Listing.findById(req.params.id);
     req.body.user = req.user._id;
     req.body.bidder = req.user.name;
+    console.log(listing);
     listing.bids.push(req.body);
     try {
       await listing.save();

@@ -41,10 +41,12 @@ async function show(req, res) {
 }
 
 async function getUserListings(req, res) {
-    const listings = await Listing.find({
-        user: req.seller._id
-    }).sort({ bidStartDate: -1 }).exec();
-    res.json(listings);
+  console.log("asdasdasdasdasd");
+  // const listings = await Listing.find({
+  //     user: req.seller._id
+  // }).sort({ bidStartDate: -1 }).exec();
+  const listing = await Listing.findById(req.params.id);
+  res.json(listing);
 }
 
 async function create(req, res) {

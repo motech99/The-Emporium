@@ -6,7 +6,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // All paths start with '/api/listings'
 
 // POST /new
-router.post("/:id/bids", ensureLoggedIn, bidsController.create);
+router.post("/:id", ensureLoggedIn, bidsController.create);
 // DELETE /:id
 router.delete("/bids/:id", ensureLoggedIn, bidsController.delete);
 

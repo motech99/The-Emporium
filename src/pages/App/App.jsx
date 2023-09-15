@@ -47,7 +47,7 @@ export default function App() {
             <Route path="/all-listing" element={<AllListingPage  />} />
             <Route path="/add-listing" element={<AddListingPage image={image} setImage={setImage} uploadImage={uploadImage} />} />
             <Route path="/edit-listing/:listingId" element={<EditListingPage image={image} setImage={setImage} uploadImage={uploadImage} />} />
-            {/* <Route path="/profile/:userId" element={<ProfilePage user={user} listings={listings} />} /> */}
+            <Route path="/profile/:userId" element={<ProfilePage user={user} listings={listings} />} />
           </Routes>
         </>
       ) : (

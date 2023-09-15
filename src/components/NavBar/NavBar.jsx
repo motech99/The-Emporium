@@ -7,6 +7,7 @@ export default function NavBar({ user, setUser }) {
     userService.logOut();
     setUser(null);
   }
+  console.log(user);
   return (
     <>
       <div className="flex flex-wrap overflow-x-hidden">
@@ -37,7 +38,7 @@ export default function NavBar({ user, setUser }) {
                   </Link>
                 </li>
                 <li>
-                  <Link className="custom--hover custom--font" to="/profile/:userId">
+                  <Link className="custom--hover custom--font" to={`/profile/${user._id}`}>
                     Profile Page
                   </Link>
                 </li>
