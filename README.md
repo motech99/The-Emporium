@@ -1,5 +1,12 @@
 # The Emporium - The Marketplace for rare collectables!
 
+## Table of Contents
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Key Features](#key-features)
+- [Technical Feature](#technical-features)
+- [Contributors](#contributors)
+
 # Screenshots 
 ![1](https://i.imgur.com/TdAcLQY.png)
 ![2](https://i.imgur.com/Jtwtzch.png)
@@ -8,15 +15,6 @@
 ![5](https://i.imgur.com/6VLQ84Z.png)
 ![6](https://i.imgur.com/UwIAua2.png)
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Technologies Used](#technologies-used)
-- [Key Features](#key-features)
-- [ER Diagram](#er-diagram)
-- [Screenshots](#screenshots)
-- [Usage](#usage)
-- [Credits](#credits)
-- [Contributors](#contributors)
 
 # Technologies Used
 + MERN-Stack
@@ -34,15 +32,12 @@
 ## Key Features
 
 ### Easy User Access
-
 User-Friendly Login and Signup: We've crafted a hassle-free login and signup process, so you can dive into collecting without any fuss.
 
 ### Manage Your Listings
-
 **Add Your Listings:** For sellers, adding your collectibles to our platform is a breeze. Share the stories of your unique items effortlessly.
 
 ### Explore and Discover
-
 **Browse All Listings:** Immerse yourself in the world of rare collectibles by browsing through our diverse range of listings. There's something for everyone!
 
 **Detailed Listing Insights:** Want to know everything about a specific item? Our listing details provide you with images, descriptions.
