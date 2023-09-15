@@ -14,6 +14,14 @@ export default function EditListingForm({ onEdit }) {
       try {
         const data = await getById(listingId);
         setListing(data);
+        setFormData({
+          itemName: data?.itemName || "",
+          description: data?.description || "",
+          condition: data?.condition || "",
+          category: data?.category || "",
+          bidEndDate: data?.bidEndDate || "",
+          // image: data?.image || "",
+        });
       } catch (error) {
         console.error("Error fetching listing:", error);
       }
@@ -27,7 +35,7 @@ export default function EditListingForm({ onEdit }) {
     condition: "",
     category: "",
     bidEndDate: "",
-    image: "",
+    // image: "",
   });
 
   const handleChange = (evt) => {
@@ -41,15 +49,14 @@ export default function EditListingForm({ onEdit }) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     console.log(formData);
-    console.log('listing is ', listing)
-    formData.image = ""
+    console.log("listing is ", listing);
+    // formData.image = ""
     try {
       const updatedListing = await editListing(listing._id, formData);
-      console.log(updatedListing)
+      console.log(updatedListing);
       // setSubmitted(true);
       // onEdit(updatedListing);
-      navigate(`/listings/${listing._id}`)
-
+      navigate(`/listings/${listing._id}`);
     } catch (error) {
       console.error("Error editing listing:", error);
     }
@@ -119,14 +126,14 @@ export default function EditListingForm({ onEdit }) {
               onChange={handleChange}
               required
             />
-            <label> Upload Image </label>
+            {/* <label> Upload Image </label>
             <input
               type="file"
               onChange={(e) =>
                 setFormData({ ...formData, image: e.target.files[0] })
               }
               required
-            />
+            /> */}
             <button className="bg-[#ff9041]" type="submit">
               EDIT LISTING
             </button>
