@@ -61,7 +61,7 @@ export default function ListingDetail(props) {
         user: props.user._id,
         date: new Date().toISOString(),
       };
-      
+
       // Make an AJAX request to add the bid
       const updatedListing = await addBid(listingId, bidData);
 
@@ -75,15 +75,13 @@ export default function ListingDetail(props) {
     }
   };
 
-
-
   if (listing === null) {
     return <p>Loading</p>;
   }
 
   return (
     <>
-      <div className="grid grid-cols-4 grid-auto-rows-auto gap-5 fade-in">
+      <div className="grid grid-cols-5 grid-auto-rows-auto gap-5 fade-in">
         {/* ITEM IMAGE */}
         <div className="col-start-2 col-end-3 row-start-1 m-10">
           <img
@@ -117,14 +115,37 @@ export default function ListingDetail(props) {
               <p>{listing.condition}</p>
             </div>
           </div>
+
+          {/* BID FORM */}
+          {props.user._id !== listing.seller ? (
+            <form className="bidForm" onSubmit={handleSubmitBid}>
+              <label htmlFor="bidAmount">Bid Amount:</label>
+              <input
+                className="w-28 rounded-md ml-4"
+                type="number"
+                step="0.01"
+                id="bidAmount"
+                name="bidAmount"
+                required
+              />
+              <button className="bg-[#ff9041] px-4 button-custom" type="submit">
+                Place Bid
+              </button>
+            </form>
+          ) : null}
+
           {/* DELETE & EDIT BUTTONS */}
-          {props.user._id === listing.seller ? (  
+          {props.user._id === listing.seller ? (
             <>
-              <button className='bg-[#f52d12] button-custom' type='button' onClick={handleDeleteListing}>
+              <button
+                className="bg-[#f52d12] px-4"
+                type="button"
+                onClick={handleDeleteListing}
+              >
                 Delete Listing
               </button>
               <button
-                className="bg-[#ff9041] button-custom"
+                className="bg-[#ff9041] px-4"
                 type="button"
                 onClick={handleEditListing}
               >
@@ -132,39 +153,30 @@ export default function ListingDetail(props) {
               </button>
             </>
           ) : null}
-          <div className="border-t-4 border-contrast my-14">
+          <div className="border-t border-contrast mt-6 mb-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <br />
             <p>{listing.description}</p>
           </div>
         </div>
 
-         {/* BID FORM */}
-         <form onSubmit={handleSubmitBid}>
-          <label htmlFor="bidAmount">Bid Amount:</label>
-          <input
-            className="w-32 rounded-md ml-4"
-            type="number"
-            step="0.01"
-            id="bidAmount"
-            name="bidAmount"
-            required
-          />
-          <button className="bg-[#ff9041] button-custom" type="submit">
-            Place Bid
-          </button>
-        </form>
-
         {/* BIDS DISPLAY */}
-        <div className="">
-          <h3 className="text-xl mt-6">Bids</h3>
-          {listing.bids.map((bid, index) => (
-            <div key={index} className="border p-2 mt-2">
-              <p>Bid Amount: ${bid.bidAmount}</p>
-              <p>Date: {new Date(bid.date).toLocaleString()}</p>
-              <p>Bidder ID: {bid.bidder}</p>
-            </div>
-          ))}
+        <div className="col-start-4 col-end-5 w-full">
+          <div className="mt-20 mb-10">
+            <h3 className="text-3xl text-left mt-60 ml-10 mb-5">Bids</h3>
+            {listing.bids.map((bid, index) => (
+              <div
+                key={index}
+                className="flex justify-between border border-secondary rounded-md p-2 mt-2"
+              >
+                <p>
+                  <span className="font-medium">${bid.bidAmount}</span> -{" "}
+                  {bid.bidder}
+                </p>
+                <p>{new Date(bid.date).toLocaleString()}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {/* <Footer /> */}
