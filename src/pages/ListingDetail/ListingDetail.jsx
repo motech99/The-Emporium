@@ -132,11 +132,11 @@ export default function ListingDetail(props) {
               </button>
             </>
           ) : null}
-        </div>
           <div className="border-t border-contrast my-14">
             <h3 className="text-xl mt-6">About this item</h3>
             <p>{listing.description}</p>
           </div>
+        </div>
           {/* ) : null} */}
 
           {/* BID FORM */}
