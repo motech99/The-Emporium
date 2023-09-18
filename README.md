@@ -1,11 +1,15 @@
-# The Emporium - The Marketplace for rare collectables!
+# The Emporium - The Marketplace for rare collectibles!
 
 ## Table of Contents
+- [Introduction](#introduction)
 - [Screenshots](#screenshots)
 - [Technologies Used](#technologies-used)
 - [Key Features](#key-features)
 - [Technical Feature](#technical-features)
 - [Contributors](#contributors)
+
+# Introduction
+Welcome to The Emporium, your go-to destination for rare collectibles! Our user-friendly web application is your gateway to a world of unique treasures and cherished finds. Whether you're a seasoned collector or just starting your journey, we've curated a marketplace that caters to all enthusiasts. Explore, discover, and connect with fellow collectors like never before. Join us in celebrating the joy of collecting at The Emporium!
 
 # Screenshots 
 ![1](https://i.imgur.com/TdAcLQY.png)
