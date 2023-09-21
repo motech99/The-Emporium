@@ -30,15 +30,6 @@ const ensureLoggedIn = require("./config/ensureLoggedIn");
 app.use("/api/listings", ensureLoggedIn, require("./routes/api/listings"));
 app.use("/api/bids", ensureLoggedIn, require("./routes/api/bids"));
 
-// MongoDB store setup
-MongoStore.create({
-  mongoUrl: process.env.DATABASE_URL
-});
-
-// Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
